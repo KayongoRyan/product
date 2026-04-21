@@ -32,6 +32,12 @@ body {
   z-index: 10;
   background-color: transparent;
   background: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.nav-scrolled {
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 5px 0 0 0;
 }
 
 .nav .container {
@@ -45,14 +51,20 @@ body {
   display: flex;
   align-items: center;
   margin-left: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
   padding: 0;
+  height: 100%;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
   margin-right: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
   padding: 0;
+  height: 100%;
 }
 
 .nav-btn {
