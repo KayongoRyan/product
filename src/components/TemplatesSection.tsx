@@ -68,12 +68,12 @@ export function TemplatesSection() {
           </article>
 
           {/* Vertical scroller */}
-          <div className="relative max-h-[640px] overflow-y-auto pr-2">
-            <div className="flex flex-col gap-4">
+          <div className="relative max-h-[520px] overflow-y-auto pr-2">
+            <div className="mx-auto flex max-w-md flex-col gap-3">
               {templates.map((t) => (
                 <article
                   key={t.title}
-                  className={`group relative aspect-[16/9] w-full overflow-hidden rounded-2xl border-2 border-ink ${t.bg}`}
+                  className={`group relative aspect-[21/9] w-full overflow-hidden rounded-xl border-2 border-ink ${t.bg}`}
                 >
                   <img
                     src={t.img}
@@ -81,7 +81,7 @@ export function TemplatesSection() {
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">
                     ↗
                   </div>
                 </article>
