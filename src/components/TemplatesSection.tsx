@@ -45,48 +45,46 @@ export function TemplatesSection() {
           </h2>
         </div>
 
-        {/* Featured + horizontal scroller */}
-        <div className="grid gap-6 md:grid-cols-[minmax(0,360px)_1fr]">
-          {/* Featured left card */}
-          <article className="flex flex-col items-center">
-            <div className="relative w-full overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
-              <div className="aspect-[3/4] w-full">
-                <img
-                  src={featured.img}
-                  alt={featured.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <h3 className="mt-6 text-center font-display text-xl font-black uppercase tracking-widest text-ink">
-              {featured.title}
-            </h3>
-            <button className="mt-4 rounded-full bg-primary px-7 py-3 font-display text-sm font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5">
-              View More
-            </button>
-          </article>
-
-          {/* Horizontal scroller */}
-          <div className="relative -mr-5 overflow-x-auto pb-4 md:-mr-10">
-            <div className="flex gap-4 pr-5 md:pr-10">
-              {templates.map((t) => (
-                <article
-                  key={t.title}
-                  className={`group relative aspect-[3/4] w-[220px] flex-shrink-0 overflow-hidden rounded-2xl border-2 border-ink md:w-[260px] ${t.bg}`}
-                >
+        {/* Single horizontal row: featured + templates */}
+        <div className="-mx-5 overflow-x-auto pb-4 md:-mx-10">
+          <div className="flex items-start gap-4 px-5 md:gap-6 md:px-10">
+            {/* Featured card */}
+            <article className="flex w-[240px] flex-shrink-0 flex-col items-center md:w-[300px]">
+              <div className="relative w-full overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
+                <div className="aspect-[3/4] w-full">
                   <img
-                    src={t.img}
-                    alt={t.title}
+                    src={featured.img}
+                    alt={featured.title}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover"
                   />
-                  <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-                    ↗
-                  </div>
-                </article>
-              ))}
-            </div>
+                </div>
+              </div>
+              <h3 className="mt-5 text-center font-display text-base font-black uppercase tracking-widest text-ink md:text-lg">
+                {featured.title}
+              </h3>
+              <button className="mt-3 rounded-full bg-primary px-6 py-2.5 font-display text-xs font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5">
+                View More
+              </button>
+            </article>
+
+            {/* Template cards */}
+            {templates.map((t) => (
+              <article
+                key={t.title}
+                className={`group relative aspect-[3/4] w-[220px] flex-shrink-0 overflow-hidden rounded-2xl border-2 border-ink md:w-[260px] ${t.bg}`}
+              >
+                <img
+                  src={t.img}
+                  alt={t.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
+                  ↗
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>
