@@ -60,14 +60,23 @@ const presentationTemplates: Template[] = [
 function TemplateBlock({
   featured,
   templates,
+  featuredSide = "left",
 }: {
   featured: Featured;
   templates: Template[];
+  featuredSide?: "left" | "right";
 }) {
+  const isRight = featuredSide === "right";
   return (
-    <div className="grid items-center gap-6 md:grid-cols-[minmax(0,260px)_1fr]">
-      {/* Featured left card */}
-      <article className="flex flex-col items-center">
+    <div
+      className={`grid items-center gap-6 ${
+        isRight
+          ? "md:grid-cols-[1fr_minmax(0,260px)]"
+          : "md:grid-cols-[minmax(0,260px)_1fr]"
+      }`}
+    >
+      {/* Featured card */}
+      <article className={`flex flex-col items-center ${isRight ? "md:order-2" : ""}`}>
         <div className="relative w-full max-w-[240px] overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
           <div className="aspect-[3/4] w-full">
             <img
