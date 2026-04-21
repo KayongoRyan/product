@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       {/* Navigation */}
@@ -112,6 +112,6 @@ function App() {
       </section>
     </div>
   );
-}
+};
 
 export default App;
