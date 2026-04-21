@@ -140,4 +140,19 @@
     border: 1.5px solid var(--ink);
     padding: 0.5rem 1rem;
   }
+
+  .slide-up {
+    animation: slide-up 4s ease-in-out infinite;
+  }
+  .slide-down {
+    animation: slide-down 4s ease-in-out infinite;
+  }
+  @keyframes slide-up {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+  @keyframes slide-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(16px); }
+  }
 }
