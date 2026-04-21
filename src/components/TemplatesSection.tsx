@@ -67,13 +67,13 @@ export function TemplatesSection() {
             </button>
           </article>
 
-          {/* Vertical scroller */}
-          <div className="relative max-h-[520px] overflow-y-auto pr-2">
-            <div className="mx-auto flex max-w-md flex-col gap-3">
-              {templates.map((t) => (
+          {/* Horizontal row — equal-sized portrait cards */}
+          <div className="relative -mr-5 overflow-x-auto pb-4 md:mr-0 md:overflow-visible">
+            <div className="flex gap-3 pr-5 md:grid md:grid-cols-4 md:gap-3 md:pr-0">
+              {templates.slice(0, 4).map((t) => (
                 <article
                   key={t.title}
-                  className={`group relative aspect-[21/9] w-full overflow-hidden rounded-xl border-2 border-ink ${t.bg}`}
+                  className={`group relative aspect-[3/4] w-[150px] flex-shrink-0 overflow-hidden rounded-xl border-2 border-ink md:w-auto ${t.bg}`}
                 >
                   <img
                     src={t.img}
