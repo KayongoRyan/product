@@ -7,15 +7,19 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className="nav">
         <div className="container">
-          <button className="nav-btn menu-btn">
-            <span className="hamburger-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            MENU
-          </button>
-          <button className="nav-btn connect-btn">CONNECT</button>
+          <div className="nav-left">
+            <button className="nav-btn menu-btn">
+              <span className="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              MENU
+            </button>
+          </div>
+          <div className="nav-right">
+            <button className="nav-btn connect-btn">CONNECT</button>
+          </div>
         </div>
       </nav>
 
