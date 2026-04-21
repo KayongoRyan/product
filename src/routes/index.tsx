@@ -1,26 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
+import { TemplatesSection } from "@/components/TemplatesSection";
+import { LutsSection } from "@/components/LutsSection";
+import { FashionSection } from "@/components/FashionSection";
+import { SoundpacksSection } from "@/components/SoundpacksSection";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Norf Crebions — Templates, LUTs, Sounds & Bold Fashion" },
+      {
+        name: "description",
+        content:
+          "Stop hiding behind boring designs. Shop Squarespace templates, cinematic LUTs, soundpacks and bold fashion from Norf Crebions.",
+      },
+      { property: "og:title", content: "Norf Crebions — Bold Creative Studio" },
+      {
+        property: "og:description",
+        content: "Templates, LUTs, soundpacks and fashion that demand attention.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="min-h-screen bg-paper text-ink">
+      <Nav />
+      <Hero />
+      <TemplatesSection />
+      <LutsSection />
+      <FashionSection />
+      <SoundpacksSection />
+      <Footer />
+    </main>
+  );
 }
