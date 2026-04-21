@@ -149,22 +149,25 @@ body {
 
 /* Products Separator */
 .products-separator {
-  padding: 80px 0;
+  padding: 40px 0;
   overflow: hidden;
-  background-color: #111;
+  background-color: transparent;
 }
 
 .products-text {
   display: flex;
   white-space: nowrap;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 900;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  text-stroke: 1px #fff;
   animation: scroll 20s linear infinite;
 }
 
 .products-text span {
-  padding: 0 50px;
+  padding: 0 30px;
 }
 
 @keyframes scroll {
@@ -179,7 +182,7 @@ body {
 /* Templates Section */
 .templates-section {
   padding: 100px 0;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .section-title {
@@ -187,7 +190,7 @@ body {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 80px;
-  color: #fff;
+  color: #000;
 }
 
 .templates-grid {
