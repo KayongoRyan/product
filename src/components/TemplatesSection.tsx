@@ -136,14 +136,6 @@ export function TemplatesSection() {
 
         {/* Block 2 — Presentation Templates */}
         <div>
-          <div className="mb-12 text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              02 — Shop
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-black uppercase tracking-tight md:text-6xl">
-              Presentation Templates
-            </h2>
-          </div>
           <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} />
         </div>
       </div>
