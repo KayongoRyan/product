@@ -27,7 +27,7 @@ export function Hero() {
       <div className="relative z-10 border-y border-paper/60 bg-ink py-2">
         <Marquee
           items={["PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS"]}
-          itemClassName="font-display text-2xl md:text-3xl font-black text-stroke-paper tracking-tight"
+          itemClassName="font-display text-2xl md:text-3xl font-normal text-stroke-paper-thin tracking-tight"
           separator={<span className="text-paper/70 text-xl">•</span>}
         />
       </div>

@@ -109,6 +109,10 @@
     -webkit-text-stroke: 2px var(--paper);
     color: transparent;
   }
+  .text-stroke-paper-thin {
+    -webkit-text-stroke: 1px var(--paper);
+    color: transparent;
+  }
 
   .marquee {
     display: flex;
