@@ -145,7 +145,7 @@ export function TemplatesSection() {
 
         {/* Block 2 — Presentation Templates */}
         <div>
-          <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} />
+          <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} featuredSide="right" />
         </div>
       </div>
     </section>
