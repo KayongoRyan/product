@@ -65,50 +65,29 @@ const App: React.FC = () => {
           <h2 className="section-title">SHOP SQUARESPACE TEMPLATES</h2>
           
           <div className="templates-layout">
-            {/* Left Column */}
+            {/* Left Side */}
             <div className="templates-left">
-              <div className="template-item">
-                <img src="/template1.jpg" alt="Template 1" className="template-img" />
-                <div className="template-info">
-                  <h3>Website Templates</h3>
-                  <p>Professional templates for modern businesses</p>
-                  <button className="template-btn">VIEW MORE</button>
-                </div>
+              <div className="template-card-small card-top">
+                <img src="/template5.jpg" alt="Template 5" className="card-img" />
               </div>
-              <div className="template-item">
-                <img src="/template2.jpg" alt="Template 2" className="template-img" />
-                <div className="template-info">
-                  <h3>Investment Returns</h3>
-                  <p>Financial analysis and reporting templates</p>
-                  <button className="template-btn">VIEW MORE</button>
-                </div>
-              </div>
+              <h3 className="templates-name">Website Templates</h3>
+              <button className="templates-view-more">VIEW MORE</button>
             </div>
 
-            {/* Right Column */}
+            {/* Right Side - Overlapping Cards */}
             <div className="templates-right">
-              <div className="template-item">
-                <img src="/template3.jpg" alt="Template 3" className="template-img" />
-                <div className="template-info">
-                  <h3>Urban Streetwear Hub</h3>
-                  <p>Fashion and lifestyle e-commerce templates</p>
-                  <button className="template-btn">VIEW MORE</button>
+              <div className="templates-cards-container">
+                <div className="template-card-small card-1">
+                  <img src="/template1.jpg" alt="Template 1" className="card-img" />
                 </div>
-              </div>
-              <div className="template-item">
-                <img src="/template4.jpg" alt="Template 4" className="template-img" />
-                <div className="template-info">
-                  <h3>Creative Portfolio</h3>
-                  <p>Showcase your work with style</p>
-                  <button className="template-btn">VIEW MORE</button>
+                <div className="template-card-small card-2">
+                  <img src="/template2.jpg" alt="Template 2" className="card-img" />
                 </div>
-              </div>
-              <div className="template-item">
-                <img src="/template5.jpg" alt="Template 5" className="template-img" />
-                <div className="template-info">
-                  <h3>Business Landing</h3>
-                  <p>Convert visitors into customers</p>
-                  <button className="template-btn">VIEW MORE</button>
+                <div className="template-card-small card-3">
+                  <img src="/template3.jpg" alt="Template 3" className="card-img" />
+                </div>
+                <div className="template-card-small card-4">
+                  <img src="/template4.jpg" alt="Template 4" className="card-img" />
                 </div>
               </div>
             </div>
