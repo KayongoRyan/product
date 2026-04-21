@@ -97,23 +97,23 @@ function TemplateBlock({
 
       {/* Layout: tall | stacked(2 over 3) | tall */}
       <div className={`grid grid-cols-3 gap-3 h-[420px] md:h-[480px] ${isRight ? "md:order-1" : ""}`}>
-        <article className={`group relative overflow-hidden rounded-[3px] h-full ${templates[0].bg}`}>
+        <article className={`group relative overflow-hidden rounded-[3px] h-full slide-up ${templates[0].bg}`}>
           <img src={templates[0].img} alt={templates[0].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </article>
 
         <div className="flex flex-col h-full gap-3">
-          <article className={`group relative overflow-hidden rounded-[3px] flex-1 ${templates[1].bg}`}>
+          <article className={`group relative overflow-hidden rounded-[3px] flex-1 slide-down ${templates[1].bg}`}>
             <img src={templates[1].img} alt={templates[1].title} loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </article>
-          <article className={`group relative overflow-hidden rounded-[3px] flex-1 ${templates[2].bg}`}>
+          <article className={`group relative overflow-hidden rounded-[3px] flex-1 slide-down ${templates[2].bg}`}>
             <img src={templates[2].img} alt={templates[2].title} loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </article>
         </div>
 
-        <article className={`group relative overflow-hidden rounded-[3px] h-full ${templates[3].bg}`}>
+        <article className={`group relative overflow-hidden rounded-[3px] h-full slide-up ${templates[3].bg}`}>
           <img src={templates[3].img} alt={templates[3].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </article>
