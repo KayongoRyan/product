@@ -96,7 +96,7 @@ function TemplateBlock({
       </article>
 
       {/* Layout: tall | stacked(2 over 3) | tall */}
-      <div className="grid grid-cols-3 gap-3 h-[420px] md:h-[480px]">
+      <div className={`grid grid-cols-3 gap-3 h-[420px] md:h-[480px] ${isRight ? "md:order-1" : ""}`}>
         <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-full ${templates[0].bg}`}>
           <img src={templates[0].img} alt={templates[0].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
