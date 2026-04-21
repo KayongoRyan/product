@@ -23,22 +23,12 @@ export function Hero() {
         </h1>
       </div>
 
-      {/* tagline */}
-      <div className="relative z-10 mx-auto max-w-3xl px-6 pb-10 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.4em] text-paper/80">
-          Norf Crebions · Studio for the bold
-        </p>
-        <p className="mt-4 font-display text-2xl font-medium md:text-3xl">
-          Stop hiding behind boring designs.
-        </p>
-      </div>
-
       {/* products marquee */}
-      <div className="relative z-10 border-y-2 border-paper bg-ink py-4">
+      <div className="relative z-10 border-y border-paper/60 bg-ink py-2">
         <Marquee
-          items={["PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS"]}
-          itemClassName="font-display text-5xl md:text-7xl font-black text-stroke-paper tracking-tight"
-          separator={<span className="text-primary text-5xl md:text-7xl">●</span>}
+          items={["PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS", "PRODUCTS"]}
+          itemClassName="font-display text-2xl md:text-3xl font-black text-paper tracking-tight"
+          separator={<span className="text-paper/70 text-xl">•</span>}
         />
       </div>
     </section>
