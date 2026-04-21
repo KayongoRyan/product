@@ -45,11 +45,11 @@ export function TemplatesSection() {
           </h2>
         </div>
 
-        {/* Featured + horizontal scroller */}
-        <div className="grid gap-6 md:grid-cols-[minmax(0,360px)_1fr]">
-          {/* Featured left card */}
+        {/* Featured + staggered row */}
+        <div className="grid items-center gap-6 md:grid-cols-[minmax(0,260px)_1fr]">
+          {/* Featured left card — smaller */}
           <article className="flex flex-col items-center">
-            <div className="relative w-full overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
+            <div className="relative w-full max-w-[240px] overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
               <div className="aspect-[3/4] w-full">
                 <img
                   src={featured.img}
@@ -59,34 +59,48 @@ export function TemplatesSection() {
                 />
               </div>
             </div>
-            <h3 className="mt-6 text-center font-display text-xl font-black uppercase tracking-widest text-ink">
+            <h3 className="mt-5 text-center font-display text-base font-black uppercase tracking-widest text-ink">
               {featured.title}
             </h3>
-            <button className="mt-4 rounded-full bg-primary px-7 py-3 font-display text-sm font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5">
+            <button className="mt-3 rounded-full bg-primary px-6 py-2.5 font-display text-xs font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5">
               View More
             </button>
           </article>
 
-          {/* Horizontal row — equal-sized portrait cards */}
-          <div className="relative -mr-5 overflow-x-auto pb-4 md:mr-0 md:overflow-visible">
-            <div className="flex gap-3 pr-5 md:grid md:grid-cols-4 md:gap-3 md:pr-0">
-              {templates.slice(0, 4).map((t) => (
-                <article
-                  key={t.title}
-                  className={`group relative aspect-[3/4] w-[150px] flex-shrink-0 overflow-hidden rounded-xl border-2 border-ink md:w-auto ${t.bg}`}
-                >
-                  <img
-                    src={t.img}
-                    alt={t.title}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">
-                    ↗
-                  </div>
-                </article>
-              ))}
+          {/* Staggered row: tall | short-top | short-bottom | tall */}
+          {/* Outer cards span full height; inner cards are half-height aligned to top/bottom */}
+          <div className="grid grid-cols-4 gap-3 h-[420px] md:h-[480px]">
+            {/* Card 1 — tall */}
+            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink row-span-2 h-full ${templates[0].bg}`}>
+              <img src={templates[0].img} alt={templates[0].title} loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
+            </article>
+
+            {/* Middle column 2 — short, aligned to top */}
+            <div className="flex flex-col h-full">
+              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-[55%] ${templates[1].bg}`}>
+                <img src={templates[1].img} alt={templates[1].title} loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
+              </article>
             </div>
+
+            {/* Middle column 3 — short, aligned to bottom */}
+            <div className="flex flex-col h-full justify-end">
+              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-[55%] ${templates[2].bg}`}>
+                <img src={templates[2].img} alt={templates[2].title} loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
+              </article>
+            </div>
+
+            {/* Card 4 — tall */}
+            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink row-span-2 h-full ${templates[3].bg}`}>
+              <img src={templates[3].img} alt={templates[3].title} loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
+            </article>
           </div>
         </div>
       </div>
