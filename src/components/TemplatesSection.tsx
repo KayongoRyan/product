@@ -67,13 +67,13 @@ export function TemplatesSection() {
             </button>
           </article>
 
-          {/* Horizontal scroller */}
-          <div className="relative -mr-5 overflow-x-auto pb-4 md:-mr-10">
-            <div className="flex gap-4 pr-5 md:pr-10">
+          {/* Vertical scroller */}
+          <div className="relative max-h-[640px] overflow-y-auto pr-2">
+            <div className="flex flex-col gap-4">
               {templates.map((t) => (
                 <article
                   key={t.title}
-                  className={`group relative aspect-[3/4] w-[220px] flex-shrink-0 overflow-hidden rounded-2xl border-2 border-ink md:w-[260px] ${t.bg}`}
+                  className={`group relative aspect-[16/9] w-full overflow-hidden rounded-2xl border-2 border-ink ${t.bg}`}
                 >
                   <img
                     src={t.img}
