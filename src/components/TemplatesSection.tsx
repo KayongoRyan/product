@@ -77,7 +77,7 @@ function TemplateBlock({
     >
       {/* Featured card */}
       <article className={`flex flex-col items-center ${isRight ? "md:order-2" : ""}`}>
-        <div className="relative w-full max-w-[240px] overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
+        <div className="relative w-full max-w-[240px] overflow-hidden rounded-[3px] bg-[#f5efe2]">
           <div className="aspect-[3/4] w-full">
             <img
               src={featured.img}
@@ -100,26 +100,22 @@ function TemplateBlock({
         <article className={`group relative overflow-hidden rounded-[3px] h-full ${templates[0].bg}`}>
           <img src={templates[0].img} alt={templates[0].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
         </article>
 
         <div className="flex flex-col h-full gap-3">
           <article className={`group relative overflow-hidden rounded-[3px] flex-1 ${templates[1].bg}`}>
             <img src={templates[1].img} alt={templates[1].title} loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
           </article>
           <article className={`group relative overflow-hidden rounded-[3px] flex-1 ${templates[2].bg}`}>
             <img src={templates[2].img} alt={templates[2].title} loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
           </article>
         </div>
 
         <article className={`group relative overflow-hidden rounded-[3px] h-full ${templates[3].bg}`}>
           <img src={templates[3].img} alt={templates[3].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
         </article>
       </div>
     </div>
