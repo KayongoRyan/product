@@ -67,28 +67,23 @@ export function TemplatesSection() {
             </button>
           </article>
 
-          {/* Staggered row: tall | short-top | short-bottom | tall */}
-          {/* Outer cards span full height; inner cards are half-height aligned to top/bottom */}
-          <div className="grid grid-cols-4 gap-3 h-[420px] md:h-[480px]">
+          {/* Layout: tall | stacked(2 over 3) | tall */}
+          <div className="grid grid-cols-3 gap-3 h-[420px] md:h-[480px]">
             {/* Card 1 — tall */}
-            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink row-span-2 h-full ${templates[0].bg}`}>
+            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-full ${templates[0].bg}`}>
               <img src={templates[0].img} alt={templates[0].title} loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
             </article>
 
-            {/* Middle column 2 — short, aligned to top */}
-            <div className="flex flex-col h-full">
-              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-[55%] ${templates[1].bg}`}>
+            {/* Middle column — card 2 on top, card 3 below */}
+            <div className="flex flex-col h-full gap-3">
+              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink flex-1 ${templates[1].bg}`}>
                 <img src={templates[1].img} alt={templates[1].title} loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
               </article>
-            </div>
-
-            {/* Middle column 3 — short, aligned to bottom */}
-            <div className="flex flex-col h-full justify-end">
-              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-[55%] ${templates[2].bg}`}>
+              <article className={`group relative overflow-hidden rounded-xl border-2 border-ink flex-1 ${templates[2].bg}`}>
                 <img src={templates[2].img} alt={templates[2].title} loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
@@ -96,7 +91,7 @@ export function TemplatesSection() {
             </div>
 
             {/* Card 4 — tall */}
-            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink row-span-2 h-full ${templates[3].bg}`}>
+            <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-full ${templates[3].bg}`}>
               <img src={templates[3].img} alt={templates[3].title} loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs text-primary-foreground">↗</div>
