@@ -60,14 +60,23 @@ const presentationTemplates: Template[] = [
 function TemplateBlock({
   featured,
   templates,
+  featuredSide = "left",
 }: {
   featured: Featured;
   templates: Template[];
+  featuredSide?: "left" | "right";
 }) {
+  const isRight = featuredSide === "right";
   return (
-    <div className="grid items-center gap-6 md:grid-cols-[minmax(0,260px)_1fr]">
-      {/* Featured left card */}
-      <article className="flex flex-col items-center">
+    <div
+      className={`grid items-center gap-6 ${
+        isRight
+          ? "md:grid-cols-[1fr_minmax(0,260px)]"
+          : "md:grid-cols-[minmax(0,260px)_1fr]"
+      }`}
+    >
+      {/* Featured card */}
+      <article className={`flex flex-col items-center ${isRight ? "md:order-2" : ""}`}>
         <div className="relative w-full max-w-[240px] overflow-hidden rounded-2xl border-2 border-ink bg-[#f5efe2]">
           <div className="aspect-[3/4] w-full">
             <img
@@ -87,7 +96,7 @@ function TemplateBlock({
       </article>
 
       {/* Layout: tall | stacked(2 over 3) | tall */}
-      <div className="grid grid-cols-3 gap-3 h-[420px] md:h-[480px]">
+      <div className={`grid grid-cols-3 gap-3 h-[420px] md:h-[480px] ${isRight ? "md:order-1" : ""}`}>
         <article className={`group relative overflow-hidden rounded-xl border-2 border-ink h-full ${templates[0].bg}`}>
           <img src={templates[0].img} alt={templates[0].title} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -136,7 +145,7 @@ export function TemplatesSection() {
 
         {/* Block 2 — Presentation Templates */}
         <div>
-          <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} />
+          <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} featuredSide="right" />
         </div>
       </div>
     </section>
