@@ -97,20 +97,24 @@ const presentationTemplates: Template[] = [
   },
 ];
 
-function FlowingImages({ images, direction, title }: { images: string[]; direction: "up" | "down"; title: string }) {
+function FlowingImages({ images, direction, title, bg }: { images: string[]; direction: "up" | "down"; title: string; bg: string }) {
   // Duplicate for seamless loop
   const loop = [...images, ...images];
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className={`absolute inset-x-0 flex flex-col ${direction === "up" ? "flow-up" : "flow-down"}`}>
+      <div className={`absolute inset-x-0 flex flex-col gap-3 ${direction === "up" ? "flow-up" : "flow-down"}`}>
         {loop.map((src, i) => (
-          <img
+          <div
             key={i}
-            src={src}
-            alt={title}
-            loading="lazy"
-            className="w-full aspect-[3/4] object-cover flex-shrink-0"
-          />
+            className={`w-full overflow-hidden rounded-[3px] flex-shrink-0 ${bg}`}
+          >
+            <img
+              src={src}
+              alt={title}
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover"
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -157,22 +161,22 @@ function TemplateBlock({
 
       {/* Layout: tall | stacked(2 over 3) | tall */}
       <div className={`grid grid-cols-3 gap-6 md:gap-8 h-[420px] md:h-[480px] w-full ${isRight ? "md:order-1" : "md:order-2"}`}>
-        <article className={`relative overflow-hidden rounded-[3px] h-full ${templates[0].bg}`}>
-          <FlowingImages images={templates[0].images} direction={templates[0].direction} title={templates[0].title} />
-        </article>
-
-        <div className="flex flex-col h-full gap-6 md:gap-8">
-          <article className={`relative overflow-hidden rounded-[3px] flex-1 ${templates[1].bg}`}>
-            <FlowingImages images={templates[1].images} direction={templates[1].direction} title={templates[1].title} />
-          </article>
-          <article className={`relative overflow-hidden rounded-[3px] flex-1 ${templates[2].bg}`}>
-            <FlowingImages images={templates[2].images} direction={templates[2].direction} title={templates[2].title} />
-          </article>
+        <div className="relative h-full overflow-hidden">
+          <FlowingImages images={templates[0].images} direction={templates[0].direction} title={templates[0].title} bg={templates[0].bg} />
         </div>
 
-        <article className={`relative overflow-hidden rounded-[3px] h-full ${templates[3].bg}`}>
-          <FlowingImages images={templates[3].images} direction={templates[3].direction} title={templates[3].title} />
-        </article>
+        <div className="flex flex-col h-full gap-6 md:gap-8">
+          <div className="relative flex-1 overflow-hidden">
+            <FlowingImages images={templates[1].images} direction={templates[1].direction} title={templates[1].title} bg={templates[1].bg} />
+          </div>
+          <div className="relative flex-1 overflow-hidden">
+            <FlowingImages images={templates[2].images} direction={templates[2].direction} title={templates[2].title} bg={templates[2].bg} />
+          </div>
+        </div>
+
+        <div className="relative h-full overflow-hidden">
+          <FlowingImages images={templates[3].images} direction={templates[3].direction} title={templates[3].title} bg={templates[3].bg} />
+        </div>
       </div>
     </div>
   );
