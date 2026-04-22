@@ -22,7 +22,7 @@ const cards: Card[] = [
 
 export function NotAverageSection() {
   return (
-    <section className="bg-paper px-5 py-20 md:px-10">
+    <section className="bg-paper px-5 pt-4 pb-20 md:px-10 md:pt-6">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="mb-12 text-center">
