@@ -54,7 +54,7 @@ export function LutsSection() {
                     {l.price}
                   </span>
                 </div>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={l.img}
                     alt={l.name}
