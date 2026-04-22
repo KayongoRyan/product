@@ -112,7 +112,7 @@ function FlowingImages({ images, direction, title, bg }: { images: string[]; dir
               src={src}
               alt={title}
               loading="lazy"
-              className="w-full aspect-[3/4] object-cover"
+              className="w-full h-[220px] object-cover"
             />
           </div>
         ))}
