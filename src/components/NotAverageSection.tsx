@@ -86,7 +86,7 @@ export function NotAverageSection() {
           <button
             onClick={goPrev}
             aria-label="Previous"
-            className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-ink p-3 text-paper shadow-lg transition-transform hover:-translate-y-[55%] md:-left-6"
+            className="absolute -left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-primary p-3 text-primary-foreground shadow-lg transition-transform hover:-translate-y-[55%] md:-left-6"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -152,7 +152,7 @@ export function NotAverageSection() {
           <button
             onClick={goNext}
             aria-label="Next"
-            className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-ink p-3 text-paper shadow-lg transition-transform hover:-translate-y-[55%] md:-right-6"
+            className="absolute -right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-primary p-3 text-primary-foreground shadow-lg transition-transform hover:-translate-y-[55%] md:-right-6"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
@@ -166,7 +166,7 @@ export function NotAverageSection() {
               onClick={() => setPage(i)}
               aria-label={`Go to page ${i + 1}`}
               className={`h-2.5 rounded-full transition-all ${
-                i === page ? "w-8 bg-ink" : "w-2.5 bg-ink/30 hover:bg-ink/50"
+                i === page ? "w-8 bg-primary" : "w-2.5 bg-primary/30 hover:bg-primary/50"
               }`}
             />
           ))}
