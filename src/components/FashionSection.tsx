@@ -11,8 +11,22 @@ export function FashionSection() {
     <section id="fashion" className="bg-paper px-5 py-20 md:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-center gap-6">
-          <div className="grid h-16 w-16 place-items-center rounded-full border-2 border-ink">
-            ▶
+          <div className="relative h-24 w-24 shrink-0">
+            <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-[spin_12s_linear_infinite]">
+              <defs>
+                <path id="fashion-circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+              </defs>
+              <text className="fill-ink font-display text-[11px] font-bold uppercase tracking-[0.2em]">
+                <textPath href="#fashion-circle" startOffset="0">
+                  Nori New Merch • Let's Shop •
+                </textPath>
+              </text>
+            </svg>
+            <div className="absolute inset-0 grid place-items-center">
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-ink text-paper">
+                ▶
+              </div>
+            </div>
           </div>
           <h2 className="text-center font-display text-4xl font-black tracking-tight md:text-6xl">
             Elevate Your Style With <br /> Bold Fashion
@@ -23,7 +37,7 @@ export function FashionSection() {
           {looks.map((l, i) => (
             <div
               key={i}
-              className={`relative aspect-[3/4] overflow-hidden rounded-3xl border-2 border-ink ${i === 1 || i === 3 ? "md:aspect-[3/5]" : ""}`}
+              className={`relative aspect-[3/4] overflow-hidden rounded-tl-[2.5rem] rounded-tr-[2.5rem] ${i === 1 || i === 3 ? "md:aspect-[3/5]" : ""}`}
             >
               <img src={l.img} alt="" loading="lazy" className="h-full w-full object-cover" />
             </div>
