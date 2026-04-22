@@ -33,7 +33,7 @@ export function LutsSection() {
             <article key={l.name + l.price} className="group relative">
               {/* Card body with clipped top-right corner */}
               <div
-                style={clipStyle}
+                style={maskStyle}
                 className={`relative overflow-hidden rounded-[2rem] p-4 ${
                   l.featured ? "bg-primary" : "bg-muted-foreground/40"
                 }`}
