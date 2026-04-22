@@ -19,7 +19,7 @@ const maskStyle: React.CSSProperties = {
 export function LutsSection() {
   return (
     <section id="luts" className="bg-paper px-5 py-20 md:px-10">
-      <div className="mx-auto max-w-7xl rounded-3xl border-t-2 border-b-[5px] border-l-[5px] border-r-[5px] border-ink/20 p-6 md:p-10">
+      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-ink/20 p-6 md:p-10">
         <div className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-end">
           <h2 className="font-display text-5xl font-black tracking-tight md:text-7xl">LUTS</h2>
           <p className="text-sm text-muted-foreground md:text-base">
