@@ -1,6 +1,6 @@
-# Nori — Creator Merch & Resources Landing Page
+# Norfproduct by NorfCre8ions — Creator Merch & Resources Landing Page
 
-A bold, editorial-style landing page for a creator brand selling merch, LUTs, sound packs, and templates. Built with TanStack Start, React 19, and Tailwind CSS v4.
+A bold, editorial-style landing page for **Norfproduct by NorfCre8ions**, a creator brand selling merch, LUTs, sound packs, and templates. Built with TanStack Start, React 19, and Tailwind CSS v4.
 
 ## Overview
 
