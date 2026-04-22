@@ -129,10 +129,10 @@ function TemplateBlock({
   const isRight = featuredSide === "right";
   return (
     <div
-      className={`grid items-center gap-6 ${
+      className={`grid items-center gap-12 md:gap-20 ${
         isRight
-          ? "md:grid-cols-[1fr_minmax(0,260px)]"
-          : "md:grid-cols-[minmax(0,260px)_1fr]"
+          ? "md:grid-cols-[1fr_minmax(0,220px)]"
+          : "md:grid-cols-[minmax(0,220px)_1fr]"
       }`}
     >
       {/* Featured card */}
@@ -156,12 +156,12 @@ function TemplateBlock({
       </article>
 
       {/* Layout: tall | stacked(2 over 3) | tall */}
-      <div className={`grid grid-cols-3 gap-3 h-[420px] md:h-[480px] ${isRight ? "md:order-1" : ""}`}>
+      <div className={`grid grid-cols-3 gap-6 md:gap-8 h-[420px] md:h-[480px] max-w-[640px] mx-auto w-full ${isRight ? "md:order-1" : ""}`}>
         <article className={`relative overflow-hidden rounded-[3px] h-full ${templates[0].bg}`}>
           <FlowingImages images={templates[0].images} direction={templates[0].direction} title={templates[0].title} />
         </article>
 
-        <div className="flex flex-col h-full gap-3">
+        <div className="flex flex-col h-full gap-6 md:gap-8">
           <article className={`relative overflow-hidden rounded-[3px] flex-1 ${templates[1].bg}`}>
             <FlowingImages images={templates[1].images} direction={templates[1].direction} title={templates[1].title} />
           </article>
