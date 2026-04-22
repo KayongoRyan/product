@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { TemplatesSection } from "@/components/TemplatesSection";
 import { LutsSection } from "@/components/LutsSection";
+import { NotAverageSection } from "@/components/NotAverageSection";
 import { FashionSection } from "@/components/FashionSection";
 import { SoundpacksSection } from "@/components/SoundpacksSection";
 import { Footer } from "@/components/Footer";
@@ -32,6 +33,7 @@ function Index() {
       <Nav />
       <Hero />
       <TemplatesSection />
+      <NotAverageSection />
       <LutsSection />
       <FashionSection />
       <SoundpacksSection />
