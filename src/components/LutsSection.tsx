@@ -6,11 +6,14 @@ const luts = [
   { name: "HN Signature Cinematic LUTs", price: "$120", img: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80", featured: false },
 ];
 
-// Diagonal clip carved out of the top-right corner. The 56px notch leaves
-// room for the circular arrow button to nest into the cut.
-const clipStyle: React.CSSProperties = {
-  clipPath:
-    "polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 0 100%)",
+// Smooth concave cutout at the top-right corner using an SVG mask.
+// The large circle is subtracted from the card so the corner curves
+// inward gently around the arrow button — no sharp edges.
+const cornerMask =
+  "radial-gradient(circle 34px at calc(100% - 8px) 8px, transparent 33px, #000 34px)";
+const maskStyle: React.CSSProperties = {
+  WebkitMaskImage: cornerMask,
+  maskImage: cornerMask,
 };
 
 export function LutsSection() {
@@ -30,7 +33,7 @@ export function LutsSection() {
             <article key={l.name + l.price} className="group relative">
               {/* Card body with clipped top-right corner */}
               <div
-                style={clipStyle}
+                style={maskStyle}
                 className={`relative overflow-hidden rounded-[2rem] p-4 ${
                   l.featured ? "bg-primary" : "bg-muted-foreground/40"
                 }`}
