@@ -50,19 +50,45 @@ export function FashionSection() {
           </button>
         </div>
 
-        <div className="mt-12 grid gap-8 border-t-2 border-ink pt-8 md:grid-cols-2">
-          <p className="text-sm text-muted-foreground">
-            <span className="mr-2 font-display text-xl font-black text-ink">"</span>
-            Turns out, a beautiful & strategic website doesn't have to start from scratch.
-          </p>
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="font-display text-3xl font-black">01</p>
-              <p className="mt-2 text-sm">
-                Setup your fashion with the latest trend
+        <div className="mt-16 overflow-hidden rounded-[28px] bg-ink px-8 py-16 text-paper shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] md:px-20 md:py-24">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            {/* Left content */}
+            <div className="flex flex-col gap-8">
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-2xl font-semibold text-primary">01</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-paper/60">
+                  Setup your fashion with the latest trend
+                </span>
+              </div>
+
+              <h3 className="font-display text-5xl font-black leading-[1.05] tracking-tight md:text-[64px]">
+                Elevate your wardrobe <br />
+                with <span className="text-primary">bold</span> style
+              </h3>
+
+              <p className="max-w-md text-base leading-relaxed text-paper/70">
+                Turns out, a beautiful & strategic wardrobe doesn't have to start from
+                scratch. Curated drops, timeless pieces, ready when you are.
               </p>
+
+              <div>
+                <button className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink shadow-[0_8px_24px_-8px_rgba(229,164,67,0.6)] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_12px_28px_-8px_rgba(229,164,67,0.8)]">
+                  Explore More
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </button>
+              </div>
             </div>
-            <span className="text-2xl">→</span>
+
+            {/* Right image */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] border border-paper/10">
+              <img
+                src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1000&q=80"
+                alt="Fashion model in studio"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+            </div>
           </div>
         </div>
       </div>
