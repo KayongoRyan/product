@@ -69,46 +69,45 @@ export function NotAverageSection() {
           </h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          {cards.map((card, i) => (
-            <article
-              key={i}
-              className={`relative overflow-hidden rounded-[3px] ${card.bg}`}
-            >
-              <div className="relative aspect-[4/3] w-full">
-                {/* Title overlay */}
-                <h3
-                  className={`absolute left-6 top-6 z-10 whitespace-pre-line font-mono text-lg font-bold leading-tight md:text-xl ${
-                    card.textTone === "light" ? "text-paper" : "text-ink"
-                  }`}
+        {/* Sliding cards */}
+        <div className="marquee marquee-fast -mx-5 md:-mx-10">
+          {[0, 1].map((dup) => (
+            <div className="marquee-track" key={dup} aria-hidden={dup === 1}>
+              {cards.map((card, i) => (
+                <article
+                  key={`${dup}-${i}`}
+                  className={`relative w-[320px] shrink-0 overflow-hidden rounded-[3px] md:w-[420px] ${card.bg}`}
                 >
-                  {card.title}
-                </h3>
+                  <div className="relative aspect-[4/3] w-full">
+                    <h3
+                      className={`absolute left-6 top-6 z-10 whitespace-pre-line font-mono text-lg font-bold leading-tight md:text-xl ${
+                        card.textTone === "light" ? "text-paper" : "text-ink"
+                      }`}
+                    >
+                      {card.title}
+                    </h3>
 
-                {/* Image */}
-                <img
-                  src={card.img}
-                  alt={card.title}
-                  loading="lazy"
-                  className="absolute inset-x-6 bottom-16 top-20 h-auto w-auto max-w-[calc(100%-3rem)] rounded-[3px] object-cover"
-                  style={{ width: "calc(100% - 3rem)", height: "calc(100% - 8.5rem)" }}
-                />
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      loading="lazy"
+                      className="absolute rounded-[3px] object-cover"
+                      style={{
+                        left: "1.5rem",
+                        right: "1.5rem",
+                        top: "5rem",
+                        bottom: "4rem",
+                      }}
+                    />
 
-                {/* Shop Now button */}
-                <button className="absolute bottom-6 right-6 z-10 rounded-[3px] bg-primary px-5 py-2.5 font-mono text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">
-                  Shop Now
-                </button>
-              </div>
-            </article>
+                    <button className="absolute bottom-6 right-6 z-10 rounded-[3px] bg-primary px-5 py-2.5 font-mono text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">
+                      Shop Now
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
           ))}
-        </div>
-
-        {/* Carousel dots */}
-        <div className="mt-8 flex items-center justify-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-primary" />
-          <span className="h-2 w-2 rounded-full bg-muted" />
-          <span className="h-2 w-2 rounded-full bg-muted" />
         </div>
       </div>
     </section>
