@@ -18,6 +18,36 @@ const cards: Card[] = [
     bg: "bg-[#ececec]",
     textTone: "dark",
   },
+  {
+    title: "Portfolio Layouts\nBuilt to Impress",
+    img: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=1200&q=80",
+    bg: "bg-[#d4c5b0]",
+    textTone: "dark",
+  },
+  {
+    title: "Bold Brand Kits\nFor Modern Creators",
+    img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=1200&q=80",
+    bg: "bg-[#2d2d2d]",
+    textTone: "light",
+  },
+  {
+    title: "E-commerce Themes\nThat Convert",
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80",
+    bg: "bg-[#f5e6d3]",
+    textTone: "dark",
+  },
+  {
+    title: "Editorial Layouts\nWith Magazine Energy",
+    img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80",
+    bg: "bg-[#1a1a1a]",
+    textTone: "light",
+  },
+  {
+    title: "Studio Pages\nFor Visual Storytellers",
+    img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&q=80",
+    bg: "bg-[#e8e2d5]",
+    textTone: "dark",
+  },
 ];
 
 export function NotAverageSection() {
