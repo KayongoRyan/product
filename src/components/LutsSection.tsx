@@ -10,7 +10,7 @@ const luts = [
 // The large circle is subtracted from the card so the corner curves
 // inward gently around the arrow button — no sharp edges.
 const cornerMask =
-  "radial-gradient(circle 34px at calc(100% - 8px) 8px, transparent 33px, #000 34px)";
+  "radial-gradient(circle 34px at calc(100% - 56px) 56px, transparent 33px, #000 34px)";
 const maskStyle: React.CSSProperties = {
   WebkitMaskImage: cornerMask,
   maskImage: cornerMask,
@@ -67,7 +67,7 @@ export function LutsSection() {
               {/* Circular arrow button anchored into the clipped corner */}
               <button
                 aria-label={`Open ${l.name}`}
-                className={`absolute right-3 top-3 z-10 grid h-12 w-12 place-items-center rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition-transform duration-300 group-hover:rotate-12 ${
+                className={`absolute right-12 top-12 z-10 grid h-12 w-12 place-items-center rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition-transform duration-300 group-hover:rotate-12 ${
                   l.featured ? "bg-ink text-primary" : "bg-primary text-ink"
                 }`}
               >
