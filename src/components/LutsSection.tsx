@@ -34,7 +34,7 @@ export function LutsSection() {
               {/* Card body with clipped top-right corner */}
               <div
                 style={maskStyle}
-                className={`relative overflow-hidden rounded-[2rem] p-4 ${
+                className={`relative overflow-hidden rounded-[2rem] border-l-[5px] border-r-[5px] border-b-[5px] border-ink/20 p-4 ${
                   l.featured ? "bg-primary" : "bg-muted-foreground/40"
                 }`}
               >
