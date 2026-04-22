@@ -129,7 +129,7 @@ function TemplateBlock({
   const isRight = featuredSide === "right";
   return (
     <div
-      className={`grid items-center gap-12 md:gap-20 md:grid-cols-[minmax(0,220px)_minmax(0,640px)] md:justify-center`}
+      className={`grid items-center gap-12 md:gap-20 md:grid-cols-[minmax(0,220px)_minmax(0,820px)] md:justify-center`}
     >
       {/* Featured card */}
       <article className={`flex flex-col items-center ${isRight ? "md:order-2" : "md:order-1"}`}>
