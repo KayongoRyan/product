@@ -1,0 +1,86 @@
+type Card = {
+  title: string;
+  img: string;
+  bg: string;
+  textTone: "light" | "dark";
+};
+
+const cards: Card[] = [
+  {
+    title: "Create a Site\nThat Actually Stands Out",
+    img: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=1200&q=80",
+    bg: "bg-[#1a1a1a]",
+    textTone: "light",
+  },
+  {
+    title: "Social Media Templates\nThat Demand Attention",
+    img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=80",
+    bg: "bg-[#ececec]",
+    textTone: "dark",
+  },
+];
+
+export function NotAverageSection() {
+  return (
+    <section className="bg-paper px-5 py-20 md:px-10">
+      <div className="mx-auto max-w-7xl">
+        {/* Heading */}
+        <div className="mb-12 text-center">
+          <p className="font-mono text-sm md:text-base text-ink">
+            Stop Hiding Behind Boring Designs—
+          </p>
+          <p className="font-mono text-sm md:text-base text-ink">
+            Create a Site That Makes You Stand Out
+          </p>
+          <h2 className="mt-6 font-display text-4xl font-black uppercase tracking-tight md:text-6xl">
+            Not Your Average
+            <br />
+            templates
+          </h2>
+        </div>
+
+        {/* Cards */}
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {cards.map((card, i) => (
+            <article
+              key={i}
+              className={`relative overflow-hidden rounded-[3px] ${card.bg}`}
+            >
+              <div className="relative aspect-[4/3] w-full">
+                {/* Title overlay */}
+                <h3
+                  className={`absolute left-6 top-6 z-10 whitespace-pre-line font-mono text-lg font-bold leading-tight md:text-xl ${
+                    card.textTone === "light" ? "text-paper" : "text-ink"
+                  }`}
+                >
+                  {card.title}
+                </h3>
+
+                {/* Image */}
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  loading="lazy"
+                  className="absolute inset-x-6 bottom-16 top-20 h-auto w-auto max-w-[calc(100%-3rem)] rounded-[3px] object-cover"
+                  style={{ width: "calc(100% - 3rem)", height: "calc(100% - 8.5rem)" }}
+                />
+
+                {/* Shop Now button */}
+                <button className="absolute bottom-6 right-6 z-10 rounded-[3px] bg-primary px-5 py-2.5 font-mono text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">
+                  Shop Now
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Carousel dots */}
+        <div className="mt-8 flex items-center justify-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-primary" />
+          <span className="h-2 w-2 rounded-full bg-muted" />
+          <span className="h-2 w-2 rounded-full bg-muted" />
+        </div>
+      </div>
+    </section>
+  );
+}
