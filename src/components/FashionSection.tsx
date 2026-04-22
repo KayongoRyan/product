@@ -18,7 +18,7 @@ export function FashionSection() {
               </defs>
               <text className="fill-ink font-display text-[11px] font-bold uppercase tracking-[0.2em]">
                 <textPath href="#fashion-circle" startOffset="0">
-                  Nori New Merch • Let's Shop •
+                  Norf New Merch • Let's Shop •
                 </textPath>
               </text>
             </svg>
