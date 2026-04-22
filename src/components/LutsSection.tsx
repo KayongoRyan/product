@@ -1,8 +1,17 @@
+import { ArrowUpRight } from "lucide-react";
+
 const luts = [
   { name: "HN Signature Cinematic LUTs", price: "$100", img: "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&q=80", featured: false },
   { name: "Films LUTs V1", price: "$90", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80", featured: true },
   { name: "HN Signature Cinematic LUTs", price: "$120", img: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80", featured: false },
 ];
+
+// Diagonal clip carved out of the top-right corner. The 56px notch leaves
+// room for the circular arrow button to nest into the cut.
+const clipStyle: React.CSSProperties = {
+  clipPath:
+    "polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 0 100%)",
+};
 
 export function LutsSection() {
   return (
@@ -18,31 +27,49 @@ export function LutsSection() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {luts.map((l) => (
-            <article
-              key={l.name + l.price}
-              className={`group relative overflow-hidden rounded-[2rem] p-4 ${
-                l.featured ? "bg-primary" : "bg-muted-foreground/40"
-              }`}
-            >
-              <div className="flex items-start justify-between gap-3 px-2 pb-4 pt-2">
-                <p className={`font-display text-xs font-bold uppercase tracking-widest leading-tight ${l.featured ? "text-ink" : "text-paper"}`}>
-                  {l.name}
-                </p>
-                <div className="flex items-center gap-3 shrink-0">
-                  <span className={`font-mono text-sm font-bold ${l.featured ? "text-ink" : "text-paper"}`}>{l.price}</span>
-                  <span className={`grid h-9 w-9 place-items-center rounded-full text-sm ${l.featured ? "bg-ink text-primary" : "bg-primary text-ink"}`}>
-                    ↗
+            <article key={l.name + l.price} className="group relative">
+              {/* Card body with clipped top-right corner */}
+              <div
+                style={clipStyle}
+                className={`relative overflow-hidden rounded-[2rem] p-4 ${
+                  l.featured ? "bg-primary" : "bg-muted-foreground/40"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3 px-2 pb-4 pt-2 pr-16">
+                  <p
+                    className={`font-display text-xs font-bold uppercase tracking-widest leading-tight ${
+                      l.featured ? "text-ink" : "text-paper"
+                    }`}
+                  >
+                    {l.name}
+                  </p>
+                  <span
+                    className={`font-mono text-sm font-bold shrink-0 ${
+                      l.featured ? "text-ink" : "text-paper"
+                    }`}
+                  >
+                    {l.price}
                   </span>
                 </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                  <img
+                    src={l.img}
+                    alt={l.name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <img
-                  src={l.img}
-                  alt={l.name}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+
+              {/* Circular arrow button anchored into the clipped corner */}
+              <button
+                aria-label={`Open ${l.name}`}
+                className={`absolute right-3 top-3 z-10 grid h-12 w-12 place-items-center rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition-transform duration-300 group-hover:rotate-12 ${
+                  l.featured ? "bg-ink text-primary" : "bg-primary text-ink"
+                }`}
+              >
+                <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
+              </button>
             </article>
           ))}
         </div>
