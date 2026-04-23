@@ -29,7 +29,7 @@ export function FashionSection() {
             </div>
           </div>
           <h2 className="text-center font-display text-4xl font-black tracking-tight md:text-6xl">
-            Elevate Your Style With <br /> Bold Fashion
+            Norf Merch <br /> Collection
           </h2>
         </div>
 
