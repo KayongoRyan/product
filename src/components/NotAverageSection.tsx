@@ -63,7 +63,7 @@ export function NotAverageSection() {
   const goNext = () => setPage((p) => (p + 1) % pages);
 
   return (
-    <section className="bg-paper px-5 pt-4 pb-20 md:px-10 md:pt-6">
+    <section className="bg-paper px-5 pt-4 pb-8 md:px-10 md:pt-6 md:pb-10">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="mb-12 text-center">
