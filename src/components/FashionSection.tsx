@@ -10,7 +10,7 @@ export function FashionSection() {
   return (
     <section id="fashion" className="bg-paper px-5 py-20 md:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-[4cm]">
           <div className="relative h-24 w-24 shrink-0">
             <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-[spin_12s_linear_infinite]">
               <defs>
