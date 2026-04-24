@@ -187,8 +187,8 @@ export function FashionSection() {
               <img src={looks[2].img} alt={looks[2].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
-            {/* CENTER focal — cols 3-4, both rows */}
-            <div className="group col-start-3 col-span-2 row-start-1 row-span-2 overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.03]">
+            {/* CENTER focal — single cell, centered between clusters */}
+            <div className="group col-start-3 col-span-2 row-start-1 row-span-2 self-center justify-self-center h-[60%] w-[70%] overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[3].img} alt={looks[3].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
