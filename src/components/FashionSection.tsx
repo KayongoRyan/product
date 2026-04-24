@@ -10,8 +10,8 @@ export function FashionSection() {
   return (
     <section id="fashion" className="bg-paper px-5 py-20 md:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-[4cm]">
-          <div className="relative h-24 w-24 shrink-0">
+        <div className="relative flex flex-col items-center justify-center gap-12">
+          <div className="relative h-24 w-24 shrink-0 md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:h-32 md:w-32">
             <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-[spin_12s_linear_infinite]">
               <defs>
                 <path id="fashion-circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
@@ -23,13 +23,13 @@ export function FashionSection() {
               </text>
             </svg>
             <div className="absolute inset-0 grid place-items-center">
-              <div className="grid h-10 w-10 place-items-center rounded-full bg-ink text-paper">
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-ink text-paper md:h-14 md:w-14">
                 ▶
               </div>
             </div>
           </div>
           <h2 className="text-center font-display text-4xl font-black tracking-tight md:text-6xl">
-            Norf Merch <br /> Collection
+            Elevate your style <br /> with Norf
           </h2>
         </div>
 
