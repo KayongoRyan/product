@@ -174,32 +174,32 @@ export function FashionSection() {
             </div>
           </div>
 
-          {/* Desktop: 5-column · 3-row grid — 3 left (col 1) · focal (cols 2-4, rows 2) · 3 right (col 5) */}
-          <div className="hidden lg:grid lg:grid-cols-5 lg:grid-rows-3 lg:gap-5 lg:h-[640px] lg:w-full">
-            {/* LEFT trio — column 1 */}
+          {/* Desktop: 6-column · 2-row grid — left (cols 1-2) · focal (cols 3-4) · right (cols 5-6) */}
+          <div className="hidden lg:grid lg:grid-cols-6 lg:grid-rows-2 lg:gap-5 lg:h-[640px] lg:w-full">
+            {/* LEFT cluster — card 1 stacked on card 2 in col 1, card 3 spans both rows in col 2 */}
             <div className="group col-start-1 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[0].img} alt={looks[0].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
             <div className="group col-start-1 row-start-2 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[1].img} alt={looks[1].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
-            <div className="group col-start-1 row-start-3 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+            <div className="group col-start-2 row-start-1 row-span-2 overflow-hidden rounded-xl shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[2].img} alt={looks[2].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
-            {/* CENTER focal — reduced size, only middle row, columns 2-4 */}
-            <div className="group col-start-3 row-start-2 overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.03]">
+            {/* CENTER focal — cols 3-4, both rows */}
+            <div className="group col-start-3 col-span-2 row-start-1 row-span-2 overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[3].img} alt={looks[3].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
-            {/* RIGHT trio — column 5 */}
-            <div className="group col-start-5 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+            {/* RIGHT cluster — tall card spans both rows in col 5, cards 5 & 6 stacked in col 6 */}
+            <div className="group col-start-5 row-start-1 row-span-2 overflow-hidden rounded-xl shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[4].img} alt={looks[4].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
-            <div className="group col-start-5 row-start-2 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+            <div className="group col-start-6 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[5].img} alt={looks[5].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
-            <div className="group col-start-5 row-start-3 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+            <div className="group col-start-6 row-start-2 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
               <img src={looks[6].img} alt={looks[6].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
           </div>
