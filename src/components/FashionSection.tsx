@@ -122,11 +122,11 @@ export function FashionSection() {
           </div>
 
           {/* Desktop: absolute editorial composition */}
-          <div className="relative hidden h-[640px] w-full lg:block">
+          <div className="relative hidden h-[720px] w-full lg:block">
             {looks.map((l, i) => (
               <div
                 key={i}
-                className={`group absolute overflow-hidden shadow-[0_30px_60px_-25px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 hover:shadow-[0_40px_80px_-25px_rgba(0,0,0,0.5)] ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.radius}`}
+                className={`group absolute overflow-hidden transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.shadow} ${l.radius}`}
               >
                 <img
                   src={l.img}
