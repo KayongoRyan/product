@@ -30,7 +30,7 @@
   --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-sans: "Poppins", system-ui, sans-serif;
 }
