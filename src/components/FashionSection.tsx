@@ -114,18 +114,64 @@ export function FashionSection() {
 
         {/* Editorial asymmetrical composition: 3 left · 1 center · 3 right */}
         <div className="mt-14">
-          {/* Mobile / tablet: horizontal scroll preserving hierarchy */}
-          <div className="flex gap-4 overflow-x-auto pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {[looks[3], looks[1], looks[4], looks[0], looks[5], looks[2], looks[6]].map((l, i) => (
-              <div
-                key={i}
-                className={`relative shrink-0 overflow-hidden rounded-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.05] ${
-                  i === 0 ? "h-[420px] w-[260px]" : "h-[340px] w-[210px]"
-                }`}
-              >
-                <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+          {/* Mobile / tablet: editorial stacked sections — Left trio · Focal · Right trio */}
+          <div className="lg:hidden">
+            <div className="flex flex-col gap-6">
+              {/* LEFT trio — horizontal scroll */}
+              <div>
+                <span className="mb-3 block text-[10px] font-bold uppercase tracking-[0.3em] text-ink/50">
+                  ← Left Looks
+                </span>
+                <div className="flex gap-3 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {[looks[0], looks[1], looks[2]].map((l, i) => (
+                    <div
+                      key={`l-${i}`}
+                      className={`relative shrink-0 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.03] ${
+                        i === 1 ? "h-[300px] w-[180px]" : "h-[260px] w-[160px]"
+                      }`}
+                    >
+                      <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+
+              {/* CENTER focal — dominant, centered */}
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-[340px]">
+                  <span className="mb-3 block text-center text-[10px] font-bold uppercase tracking-[0.3em] text-primary">
+                    ★ Focal Look
+                  </span>
+                  <div className="group relative h-[480px] w-full overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out hover:scale-[1.03]">
+                    <img
+                      src={looks[3].img}
+                      alt={looks[3].alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT trio — horizontal scroll */}
+              <div>
+                <span className="mb-3 block text-right text-[10px] font-bold uppercase tracking-[0.3em] text-ink/50">
+                  Right Looks →
+                </span>
+                <div className="flex justify-end gap-3 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {[looks[4], looks[5], looks[6]].map((l, i) => (
+                    <div
+                      key={`r-${i}`}
+                      className={`relative shrink-0 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.03] ${
+                        i === 1 ? "h-[300px] w-[180px]" : "h-[260px] w-[160px]"
+                      }`}
+                    >
+                      <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Desktop: absolute editorial composition */}
