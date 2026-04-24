@@ -25,7 +25,7 @@ export function SoundpacksSection() {
       </div>
 
       <div className="px-5 py-16 md:px-10">
-        <div className="mx-auto max-w-7xl rounded-3xl border-2 border-primary p-5 md:p-8">
+        <div className="mx-auto max-w-7xl p-5 md:p-8">
           <h2 className="font-display text-2xl font-black md:text-3xl">New Soundpacks</h2>
 
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
