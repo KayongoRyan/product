@@ -112,7 +112,7 @@ export function FashionSection() {
             {[looks[2], looks[1], looks[3], looks[0], looks[4], looks[5]].map((l, i) => (
               <div
                 key={i}
-                className={`relative shrink-0 overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.05] ${l.radius} ${
+                className={`relative shrink-0 overflow-hidden rounded-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.05] ${
                   i === 0 ? "h-[420px] w-[260px]" : "h-[340px] w-[210px]"
                 }`}
               >
@@ -126,7 +126,7 @@ export function FashionSection() {
             {looks.map((l, i) => (
               <div
                 key={i}
-                className={`group absolute overflow-hidden transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.shadow} ${l.radius}`}
+                className={`group absolute overflow-hidden rounded-xl transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.shadow}`}
               >
                 <img
                   src={l.img}
