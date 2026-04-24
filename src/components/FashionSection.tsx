@@ -174,21 +174,50 @@ export function FashionSection() {
             </div>
           </div>
 
-          {/* Desktop: absolute editorial composition */}
-          <div className="relative hidden h-[720px] w-full lg:block">
-            {looks.map((l, i) => (
-              <div
-                key={i}
-                className={`group absolute overflow-hidden rounded-xl transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.shadow}`}
-              >
-                <img
-                  src={l.img}
-                  alt={l.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-              </div>
-            ))}
+          {/* Desktop: structured 7-column · 3-row grid (3 left · 1 focal · 3 right) */}
+          <div className="hidden lg:grid lg:grid-cols-7 lg:grid-rows-3 lg:gap-5 lg:h-[640px] lg:w-full">
+            {/* LEFT trio — column 1 (rows 1-3) */}
+            <div className="group col-start-1 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[0].img} alt={looks[0].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-1 row-start-2 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[1].img} alt={looks[1].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-1 row-start-3 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[2].img} alt={looks[2].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+
+            {/* LEFT inner column 2 (rows 1-3) */}
+            <div className="group col-start-2 row-start-1 row-span-2 overflow-hidden rounded-xl shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[1].img} alt={looks[1].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-2 row-start-3 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[0].img} alt={looks[0].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+
+            {/* CENTER focal — columns 3-5, all 3 rows */}
+            <div className="group col-start-3 col-span-3 row-start-1 row-span-3 overflow-hidden rounded-2xl shadow-[0_40px_80px_-25px_rgba(0,0,0,0.55)] transition-transform duration-500 hover:scale-[1.02]">
+              <img src={looks[3].img} alt={looks[3].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+
+            {/* RIGHT inner column 6 (rows 1-3) */}
+            <div className="group col-start-6 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[4].img} alt={looks[4].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-6 row-start-2 row-span-2 overflow-hidden rounded-xl shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[5].img} alt={looks[5].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+
+            {/* RIGHT outer column 7 (rows 1-3) */}
+            <div className="group col-start-7 row-start-1 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[4].img} alt={looks[4].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-7 row-start-2 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[5].img} alt={looks[5].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
+            <div className="group col-start-7 row-start-3 overflow-hidden rounded-xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
+              <img src={looks[6].img} alt={looks[6].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </div>
           </div>
         </div>
 
