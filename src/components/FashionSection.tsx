@@ -6,75 +6,82 @@ type Look = {
   rotate: string;
   z: string;
   shadow: string;
-  radius: string;
 };
 
 const looks: Look[] = [
-  // Far left — dropped low, back layer
+  // ---------- LEFT CLUSTER (3 cards) ----------
+  // Left #1 — far left, top
   {
     img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80",
     alt: "Earth-tone bomber jacket look",
-    pos: "lg:left-[1%] lg:top-[34%]",
-    size: "lg:w-[18%] lg:h-[44%]",
+    pos: "lg:left-[1%] lg:top-[4%]",
+    size: "lg:w-[16%] lg:h-[42%]",
     rotate: "lg:-rotate-[3deg]",
     z: "lg:z-10",
     shadow: "shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)]",
-    radius: "[border-radius:42%_58%_38%_62%/55%_45%_55%_45%]",
   },
-  // Inner left — tall, raised high, overlaps focal
+  // Left #2 — inner left, middle (taller)
   {
     img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80",
     alt: "Streetwear silhouette",
-    pos: "lg:left-[16%] lg:top-[6%]",
-    size: "lg:w-[22%] lg:h-[68%]",
+    pos: "lg:left-[18%] lg:top-[18%]",
+    size: "lg:w-[18%] lg:h-[58%]",
     rotate: "lg:rotate-[2deg]",
-    z: "lg:z-30",
+    z: "lg:z-20",
     shadow: "shadow-[0_28px_55px_-22px_rgba(0,0,0,0.42)]",
-    radius: "[border-radius:60%_40%_55%_45%/45%_55%_45%_55%]",
   },
-  // Center focal — biggest, lifted, top layer
-  {
-    img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1100&q=80",
-    alt: "Editorial portrait — focal look",
-    pos: "lg:left-[36%] lg:top-[-2%]",
-    size: "lg:w-[32%] lg:h-[92%]",
-    rotate: "lg:rotate-0",
-    z: "lg:z-40",
-    shadow: "shadow-[0_40px_80px_-25px_rgba(0,0,0,0.55)]",
-    radius: "[border-radius:38%_62%_45%_55%/50%_50%_50%_50%]",
-  },
-  // Inner right — medium, mid-low
-  {
-    img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80",
-    alt: "Patterned bold look",
-    pos: "lg:left-[64%] lg:top-[26%]",
-    size: "lg:w-[21%] lg:h-[58%]",
-    rotate: "lg:-rotate-[2deg]",
-    z: "lg:z-30",
-    shadow: "shadow-[0_28px_55px_-22px_rgba(0,0,0,0.42)]",
-    radius: "[border-radius:55%_45%_60%_40%/55%_45%_55%_45%]",
-  },
-  // Far right top — small, raised high
+  // Left #3 — far left, bottom
   {
     img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
     alt: "Tailored outerwear detail",
-    pos: "lg:right-[2%] lg:top-[2%]",
-    size: "lg:w-[17%] lg:h-[36%]",
-    rotate: "lg:rotate-[3deg]",
-    z: "lg:z-20",
-    shadow: "shadow-[0_22px_45px_-22px_rgba(0,0,0,0.38)]",
-    radius: "[border-radius:50%_50%_38%_62%/45%_55%_45%_55%]",
+    pos: "lg:left-[3%] lg:bottom-[4%]",
+    size: "lg:w-[15%] lg:h-[38%]",
+    rotate: "lg:rotate-[1deg]",
+    z: "lg:z-10",
+    shadow: "shadow-[0_18px_40px_-22px_rgba(0,0,0,0.32)]",
   },
-  // Far right bottom — small, dropped low
+
+  // ---------- CENTER FOCAL (1 card) ----------
+  {
+    img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1100&q=80",
+    alt: "Editorial portrait — focal look",
+    pos: "lg:left-[38%] lg:top-[2%]",
+    size: "lg:w-[24%] lg:h-[92%]",
+    rotate: "lg:rotate-0",
+    z: "lg:z-40",
+    shadow: "shadow-[0_40px_80px_-25px_rgba(0,0,0,0.55)]",
+  },
+
+  // ---------- RIGHT CLUSTER (3 cards) ----------
+  // Right #1 — inner right, top
+  {
+    img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80",
+    alt: "Patterned bold look",
+    pos: "lg:right-[18%] lg:top-[6%]",
+    size: "lg:w-[17%] lg:h-[44%]",
+    rotate: "lg:-rotate-[2deg]",
+    z: "lg:z-20",
+    shadow: "shadow-[0_28px_55px_-22px_rgba(0,0,0,0.42)]",
+  },
+  // Right #2 — far right, middle (taller)
   {
     img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
     alt: "Accessory detail",
-    pos: "lg:right-[4%] lg:bottom-[-2%]",
-    size: "lg:w-[16%] lg:h-[34%]",
-    rotate: "lg:-rotate-[4deg]",
+    pos: "lg:right-[1%] lg:top-[22%]",
+    size: "lg:w-[16%] lg:h-[56%]",
+    rotate: "lg:rotate-[3deg]",
     z: "lg:z-10",
-    shadow: "shadow-[0_18px_40px_-22px_rgba(0,0,0,0.32)]",
-    radius: "[border-radius:60%_40%_50%_50%/40%_60%_40%_60%]",
+    shadow: "shadow-[0_22px_45px_-22px_rgba(0,0,0,0.38)]",
+  },
+  // Right #3 — inner right, bottom
+  {
+    img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+    alt: "Minimal layered look",
+    pos: "lg:right-[20%] lg:bottom-[2%]",
+    size: "lg:w-[16%] lg:h-[40%]",
+    rotate: "lg:-rotate-[1deg]",
+    z: "lg:z-20",
+    shadow: "shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)]",
   },
 ];
 
@@ -105,11 +112,11 @@ export function FashionSection() {
           </h2>
         </div>
 
-        {/* Editorial asymmetrical composition */}
+        {/* Editorial asymmetrical composition: 3 left · 1 center · 3 right */}
         <div className="mt-14">
-          {/* Mobile / tablet: stacked horizontal scroll preserving hierarchy */}
+          {/* Mobile / tablet: horizontal scroll preserving hierarchy */}
           <div className="flex gap-4 overflow-x-auto pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {[looks[2], looks[1], looks[3], looks[0], looks[4], looks[5]].map((l, i) => (
+            {[looks[3], looks[1], looks[4], looks[0], looks[5], looks[2], looks[6]].map((l, i) => (
               <div
                 key={i}
                 className={`relative shrink-0 overflow-hidden rounded-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.05] ${
