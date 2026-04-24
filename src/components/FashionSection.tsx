@@ -1,9 +1,73 @@
-const looks = [
-  { img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80", w: "row-span-1" },
-  { img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80", w: "row-span-2" },
-  { img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80", w: "row-span-1" },
-  { img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80", w: "row-span-2" },
-  { img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80", w: "row-span-1" },
+type Look = {
+  img: string;
+  alt: string;
+  // desktop absolute placement
+  pos: string;
+  size: string;
+  rotate: string;
+  z: string;
+  // organic clipping per card
+  radius: string;
+};
+
+const looks: Look[] = [
+  // Left cluster
+  {
+    img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80",
+    alt: "Earth-tone bomber jacket look",
+    pos: "lg:left-[2%] lg:top-[6%]",
+    size: "lg:w-[19%] lg:h-[42%]",
+    rotate: "lg:-rotate-[3deg]",
+    z: "lg:z-20",
+    radius: "[border-radius:42%_58%_38%_62%/55%_45%_55%_45%]",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80",
+    alt: "Streetwear silhouette",
+    pos: "lg:left-[18%] lg:top-[22%]",
+    size: "lg:w-[22%] lg:h-[64%]",
+    rotate: "lg:rotate-[2deg]",
+    z: "lg:z-30",
+    radius: "[border-radius:60%_40%_55%_45%/45%_55%_45%_55%]",
+  },
+  // Center focal
+  {
+    img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1100&q=80",
+    alt: "Editorial portrait — focal look",
+    pos: "lg:left-1/2 lg:top-[8%] lg:-translate-x-1/2",
+    size: "lg:w-[26%] lg:h-[78%]",
+    rotate: "lg:rotate-0",
+    z: "lg:z-40",
+    radius: "[border-radius:38%_62%_45%_55%/50%_50%_50%_50%]",
+  },
+  // Right cluster
+  {
+    img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80",
+    alt: "Patterned bold look",
+    pos: "lg:right-[18%] lg:top-[18%]",
+    size: "lg:w-[22%] lg:h-[60%]",
+    rotate: "lg:-rotate-[2deg]",
+    z: "lg:z-30",
+    radius: "[border-radius:55%_45%_60%_40%/55%_45%_55%_45%]",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+    alt: "Tailored outerwear detail",
+    pos: "lg:right-[2%] lg:top-[10%]",
+    size: "lg:w-[19%] lg:h-[40%]",
+    rotate: "lg:rotate-[3deg]",
+    z: "lg:z-20",
+    radius: "[border-radius:50%_50%_38%_62%/45%_55%_45%_55%]",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
+    alt: "Accessory detail",
+    pos: "lg:right-[4%] lg:bottom-[4%]",
+    size: "lg:w-[17%] lg:h-[34%]",
+    rotate: "lg:-rotate-[4deg]",
+    z: "lg:z-10",
+    radius: "[border-radius:60%_40%_50%_50%/40%_60%_40%_60%]",
+  },
 ];
 
 export function FashionSection() {
@@ -33,18 +97,41 @@ export function FashionSection() {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-5">
-          {looks.map((l, i) => (
-            <div
-              key={i}
-              className={`relative aspect-[3/4] overflow-hidden rounded-tl-[2.5rem] rounded-tr-[2.5rem] ${i === 1 || i === 3 ? "md:aspect-[3/5]" : ""}`}
-            >
-              <img src={l.img} alt="" loading="lazy" className="h-full w-full object-cover" />
-            </div>
-          ))}
+        {/* Editorial asymmetrical composition */}
+        <div className="mt-14">
+          {/* Mobile / tablet: stacked horizontal scroll preserving hierarchy */}
+          <div className="flex gap-4 overflow-x-auto pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {[looks[2], looks[1], looks[3], looks[0], looks[4], looks[5]].map((l, i) => (
+              <div
+                key={i}
+                className={`relative shrink-0 overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out hover:scale-[1.05] ${l.radius} ${
+                  i === 0 ? "h-[420px] w-[260px]" : "h-[340px] w-[210px]"
+                }`}
+              >
+                <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: absolute editorial composition */}
+          <div className="relative hidden h-[640px] w-full lg:block">
+            {looks.map((l, i) => (
+              <div
+                key={i}
+                className={`group absolute overflow-hidden shadow-[0_30px_60px_-25px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 hover:shadow-[0_40px_80px_-25px_rgba(0,0,0,0.5)] ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.radius}`}
+              >
+                <img
+                  src={l.img}
+                  alt={l.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-6 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <button className="rounded-full bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)]">
             Explore More →
           </button>
