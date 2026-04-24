@@ -1,71 +1,79 @@
 type Look = {
   img: string;
   alt: string;
-  // desktop absolute placement
   pos: string;
   size: string;
   rotate: string;
   z: string;
-  // organic clipping per card
+  shadow: string;
   radius: string;
 };
 
 const looks: Look[] = [
-  // Left cluster
+  // Far left — dropped low, back layer
   {
     img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80",
     alt: "Earth-tone bomber jacket look",
-    pos: "lg:left-[2%] lg:top-[6%]",
-    size: "lg:w-[19%] lg:h-[42%]",
+    pos: "lg:left-[1%] lg:top-[34%]",
+    size: "lg:w-[18%] lg:h-[44%]",
     rotate: "lg:-rotate-[3deg]",
-    z: "lg:z-20",
+    z: "lg:z-10",
+    shadow: "shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)]",
     radius: "[border-radius:42%_58%_38%_62%/55%_45%_55%_45%]",
   },
+  // Inner left — tall, raised high, overlaps focal
   {
     img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80",
     alt: "Streetwear silhouette",
-    pos: "lg:left-[18%] lg:top-[22%]",
-    size: "lg:w-[22%] lg:h-[64%]",
+    pos: "lg:left-[16%] lg:top-[6%]",
+    size: "lg:w-[22%] lg:h-[68%]",
     rotate: "lg:rotate-[2deg]",
     z: "lg:z-30",
+    shadow: "shadow-[0_28px_55px_-22px_rgba(0,0,0,0.42)]",
     radius: "[border-radius:60%_40%_55%_45%/45%_55%_45%_55%]",
   },
-  // Center focal
+  // Center focal — biggest, lifted, top layer
   {
     img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1100&q=80",
     alt: "Editorial portrait — focal look",
-    pos: "lg:left-1/2 lg:top-[8%] lg:-translate-x-1/2",
-    size: "lg:w-[26%] lg:h-[78%]",
+    pos: "lg:left-[36%] lg:top-[-2%]",
+    size: "lg:w-[32%] lg:h-[92%]",
     rotate: "lg:rotate-0",
     z: "lg:z-40",
+    shadow: "shadow-[0_40px_80px_-25px_rgba(0,0,0,0.55)]",
     radius: "[border-radius:38%_62%_45%_55%/50%_50%_50%_50%]",
   },
-  // Right cluster
+  // Inner right — medium, mid-low
   {
     img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80",
     alt: "Patterned bold look",
-    pos: "lg:right-[18%] lg:top-[18%]",
-    size: "lg:w-[22%] lg:h-[60%]",
+    pos: "lg:left-[64%] lg:top-[26%]",
+    size: "lg:w-[21%] lg:h-[58%]",
     rotate: "lg:-rotate-[2deg]",
     z: "lg:z-30",
+    shadow: "shadow-[0_28px_55px_-22px_rgba(0,0,0,0.42)]",
     radius: "[border-radius:55%_45%_60%_40%/55%_45%_55%_45%]",
   },
+  // Far right top — small, raised high
   {
     img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
     alt: "Tailored outerwear detail",
-    pos: "lg:right-[2%] lg:top-[10%]",
-    size: "lg:w-[19%] lg:h-[40%]",
+    pos: "lg:right-[2%] lg:top-[2%]",
+    size: "lg:w-[17%] lg:h-[36%]",
     rotate: "lg:rotate-[3deg]",
     z: "lg:z-20",
+    shadow: "shadow-[0_22px_45px_-22px_rgba(0,0,0,0.38)]",
     radius: "[border-radius:50%_50%_38%_62%/45%_55%_45%_55%]",
   },
+  // Far right bottom — small, dropped low
   {
     img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
     alt: "Accessory detail",
-    pos: "lg:right-[4%] lg:bottom-[4%]",
-    size: "lg:w-[17%] lg:h-[34%]",
+    pos: "lg:right-[4%] lg:bottom-[-2%]",
+    size: "lg:w-[16%] lg:h-[34%]",
     rotate: "lg:-rotate-[4deg]",
     z: "lg:z-10",
+    shadow: "shadow-[0_18px_40px_-22px_rgba(0,0,0,0.32)]",
     radius: "[border-radius:60%_40%_50%_50%/40%_60%_40%_60%]",
   },
 ];
@@ -114,11 +122,11 @@ export function FashionSection() {
           </div>
 
           {/* Desktop: absolute editorial composition */}
-          <div className="relative hidden h-[640px] w-full lg:block">
+          <div className="relative hidden h-[720px] w-full lg:block">
             {looks.map((l, i) => (
               <div
                 key={i}
-                className={`group absolute overflow-hidden shadow-[0_30px_60px_-25px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 hover:shadow-[0_40px_80px_-25px_rgba(0,0,0,0.5)] ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.radius}`}
+                className={`group absolute overflow-hidden transition-all duration-500 ease-out hover:z-50 hover:scale-[1.05] hover:-translate-y-2 ${l.pos} ${l.size} ${l.rotate} ${l.z} ${l.shadow} ${l.radius}`}
               >
                 <img
                   src={l.img}
