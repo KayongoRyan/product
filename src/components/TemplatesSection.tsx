@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 type Featured = { title: string; img: string };
 type Template = { title: string; images: string[]; bg: string; direction: "up" | "down" };
 
@@ -154,9 +156,12 @@ function TemplateBlock({
         <h3 className="mt-5 text-center font-display text-base font-black uppercase tracking-widest text-ink">
           {featured.title}
         </h3>
-        <button className="mt-3 rounded-full bg-primary px-6 py-2.5 font-display text-xs font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5">
+        <Link
+          to="/templates"
+          className="mt-3 rounded-full bg-primary px-6 py-2.5 font-display text-xs font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5"
+        >
           View More
-        </button>
+        </Link>
       </article>
 
       {/* Layout: tall | stacked(2 over 3) | tall */}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,12 +25,12 @@ export function Nav() {
         </span>
         MENU
       </button>
-      <a
-        href="#connect"
+      <Link
+        to="/connect"
         className="rounded-full border-[1.5px] border-paper px-5 py-3 font-display text-sm font-bold tracking-widest text-paper transition-colors hover:bg-paper hover:text-ink"
       >
         CONNECT
-      </a>
+      </Link>
     </header>
   );
 }

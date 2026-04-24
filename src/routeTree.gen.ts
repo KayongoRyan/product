@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TemplatesRouteImport } from './routes/templates'
+import { Route as SoundpacksRouteImport } from './routes/soundpacks'
+import { Route as LutsRouteImport } from './routes/luts'
+import { Route as FashionRouteImport } from './routes/fashion'
+import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TemplatesRoute = TemplatesRouteImport.update({
+  id: '/templates',
+  path: '/templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoundpacksRoute = SoundpacksRouteImport.update({
+  id: '/soundpacks',
+  path: '/soundpacks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LutsRoute = LutsRouteImport.update({
+  id: '/luts',
+  path: '/luts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FashionRoute = FashionRouteImport.update({
+  id: '/fashion',
+  path: '/fashion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,96 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/fashion': typeof FashionRoute
+  '/luts': typeof LutsRoute
+  '/soundpacks': typeof SoundpacksRoute
+  '/templates': typeof TemplatesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/fashion': typeof FashionRoute
+  '/luts': typeof LutsRoute
+  '/soundpacks': typeof SoundpacksRoute
+  '/templates': typeof TemplatesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/fashion': typeof FashionRoute
+  '/luts': typeof LutsRoute
+  '/soundpacks': typeof SoundpacksRoute
+  '/templates': typeof TemplatesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/connect'
+    | '/fashion'
+    | '/luts'
+    | '/soundpacks'
+    | '/templates'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/connect' | '/fashion' | '/luts' | '/soundpacks' | '/templates'
+  id:
+    | '__root__'
+    | '/'
+    | '/connect'
+    | '/fashion'
+    | '/luts'
+    | '/soundpacks'
+    | '/templates'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConnectRoute: typeof ConnectRoute
+  FashionRoute: typeof FashionRoute
+  LutsRoute: typeof LutsRoute
+  SoundpacksRoute: typeof SoundpacksRoute
+  TemplatesRoute: typeof TemplatesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/templates': {
+      id: '/templates'
+      path: '/templates'
+      fullPath: '/templates'
+      preLoaderRoute: typeof TemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soundpacks': {
+      id: '/soundpacks'
+      path: '/soundpacks'
+      fullPath: '/soundpacks'
+      preLoaderRoute: typeof SoundpacksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/luts': {
+      id: '/luts'
+      path: '/luts'
+      fullPath: '/luts'
+      preLoaderRoute: typeof LutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fashion': {
+      id: '/fashion'
+      path: '/fashion'
+      fullPath: '/fashion'
+      preLoaderRoute: typeof FashionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +151,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConnectRoute: ConnectRoute,
+  FashionRoute: FashionRoute,
+  LutsRoute: LutsRoute,
+  SoundpacksRoute: SoundpacksRoute,
+  TemplatesRoute: TemplatesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
