@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 type Look = {
   img: string;
   alt: string;
@@ -206,9 +208,12 @@ export function FashionSection() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <button className="rounded-full bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)]">
+          <Link
+            to="/fashion"
+            className="rounded-full bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)]"
+          >
             Explore More →
-          </button>
+          </Link>
         </div>
 
         <div className="mt-16 overflow-hidden rounded-[28px] bg-ink px-8 py-16 text-paper shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] md:px-20 md:py-24">
@@ -233,10 +238,13 @@ export function FashionSection() {
               </p>
 
               <div>
-                <button className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink shadow-[0_8px_24px_-8px_rgba(229,164,67,0.6)] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_12px_28px_-8px_rgba(229,164,67,0.8)]">
+                <Link
+                  to="/fashion"
+                  className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink shadow-[0_8px_24px_-8px_rgba(229,164,67,0.6)] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_12px_28px_-8px_rgba(229,164,67,0.8)]"
+                >
                   Explore More
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </button>
+                </Link>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const luts = [
   { name: "HN Signature Cinematic LUTs", price: "$100", img: "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&q=80", featured: false },
@@ -82,9 +83,12 @@ export function LutsSection() {
             Keep <span className="text-primary [text-shadow:_-1px_-1px_0_var(--ink),1px_-1px_0_var(--ink),-1px_1px_0_var(--ink),1px_1px_0_var(--ink)]">creating</span> until you <br />
             find your <span className="text-primary [text-shadow:_-1px_-1px_0_var(--ink),1px_-1px_0_var(--ink),-1px_1px_0_var(--ink),1px_1px_0_var(--ink)]">audience</span>
           </p>
-          <button className="mt-6 rounded-full bg-primary px-8 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground">
+          <Link
+            to="/luts"
+            className="mt-6 inline-block rounded-full bg-primary px-8 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground"
+          >
             More LUTs
-          </button>
+          </Link>
         </div>
       </div>
     </section>
