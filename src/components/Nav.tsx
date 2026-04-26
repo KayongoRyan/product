@@ -63,7 +63,11 @@ export function Nav() {
         ) : (
           <Link
             to="/auth"
-            className="rounded-full border-[1.5px] border-paper px-5 py-3 font-display text-sm font-bold tracking-widest text-paper transition-colors hover:bg-paper hover:text-ink"
+            className={`rounded-full border-[1.5px] px-5 py-3 font-display text-sm font-bold tracking-widest transition-colors ${
+              scrolled
+                ? "border-paper text-paper hover:bg-paper hover:text-ink"
+                : "border-ink text-ink hover:bg-ink hover:text-paper"
+            }`}
           >
             CONNECT
           </Link>
