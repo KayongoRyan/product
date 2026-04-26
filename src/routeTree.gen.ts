@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as SoundpacksRouteImport } from './routes/soundpacks'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as LutsRouteImport } from './routes/luts'
 import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as ConnectRouteImport } from './routes/connect'
@@ -25,6 +26,11 @@ const TemplatesRoute = TemplatesRouteImport.update({
 const SoundpacksRoute = SoundpacksRouteImport.update({
   id: '/soundpacks',
   path: '/soundpacks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LutsRoute = LutsRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
+  '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
+  '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
+  '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/fashion'
     | '/luts'
+    | '/settings'
     | '/soundpacks'
     | '/templates'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/fashion'
     | '/luts'
+    | '/settings'
     | '/soundpacks'
     | '/templates'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/fashion'
     | '/luts'
+    | '/settings'
     | '/soundpacks'
     | '/templates'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ConnectRoute: typeof ConnectRoute
   FashionRoute: typeof FashionRoute
   LutsRoute: typeof LutsRoute
+  SettingsRoute: typeof SettingsRoute
   SoundpacksRoute: typeof SoundpacksRoute
   TemplatesRoute: typeof TemplatesRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/soundpacks'
       fullPath: '/soundpacks'
       preLoaderRoute: typeof SoundpacksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/luts': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConnectRoute: ConnectRoute,
   FashionRoute: FashionRoute,
   LutsRoute: LutsRoute,
+  SettingsRoute: SettingsRoute,
   SoundpacksRoute: SoundpacksRoute,
   TemplatesRoute: TemplatesRoute,
 }

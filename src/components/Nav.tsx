@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user, profile, signOut } = useAuth();
+  const { user, profile } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -37,29 +37,21 @@ export function Nav() {
         </button>
 
         {user ? (
-          <div className="flex items-center gap-2">
-            <button
-              onClick={signOut}
-              className="hidden rounded-full border-[1.5px] border-paper px-4 py-2 font-display text-xs font-bold uppercase tracking-widest text-paper transition-colors hover:bg-paper hover:text-ink sm:inline-flex"
-            >
-              Log out
-            </button>
-            <Link
-              to="/connect"
-              aria-label="Profile"
-              className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-[1.5px] border-paper bg-primary font-display text-base font-black text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5"
-            >
-              {profile?.avatar_url ? (
-                <img
-                  src={profile.avatar_url}
-                  alt={profile.display_name ?? "Avatar"}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <span>{initial}</span>
-              )}
-            </Link>
-          </div>
+          <Link
+            to="/settings"
+            aria-label="Settings"
+            className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-[1.5px] border-ink bg-primary font-display text-base font-black text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5"
+          >
+            {profile?.avatar_url ? (
+              <img
+                src={profile.avatar_url}
+                alt={profile.display_name ?? "Avatar"}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <span>{initial}</span>
+            )}
+          </Link>
         ) : (
           <Link
             to="/auth"
