@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user, profile, signOut } = useAuth();
+  const { user, profile } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
