@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Nav } from "@/components/Nav";
 
 export const Route = createFileRoute("/luts")({
   head: () => ({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/luts")({
 function LutsPage() {
   return (
     <main className="min-h-screen bg-paper px-5 py-24 text-ink md:px-10">
+      <Nav />
       <div className="mx-auto max-w-7xl">
         <Link to="/" className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-ink">← Back home</Link>
         <h1 className="mt-6 font-display text-5xl font-black uppercase tracking-tight md:text-7xl">All LUTs</h1>
