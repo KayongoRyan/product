@@ -14,6 +14,7 @@ import { Route as SoundpacksRouteImport } from './routes/soundpacks'
 import { Route as LutsRouteImport } from './routes/luts'
 import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TemplatesRoute = TemplatesRouteImport.update({
@@ -41,6 +42,11 @@ const ConnectRoute = ConnectRouteImport.update({
   path: '/connect',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
   '/luts': typeof LutsRoute
@@ -76,16 +85,25 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/connect'
     | '/fashion'
     | '/luts'
     | '/soundpacks'
     | '/templates'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/connect' | '/fashion' | '/luts' | '/soundpacks' | '/templates'
+  to:
+    | '/'
+    | '/auth'
+    | '/connect'
+    | '/fashion'
+    | '/luts'
+    | '/soundpacks'
+    | '/templates'
   id:
     | '__root__'
     | '/'
+    | '/auth'
     | '/connect'
     | '/fashion'
     | '/luts'
@@ -95,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   ConnectRoute: typeof ConnectRoute
   FashionRoute: typeof FashionRoute
   LutsRoute: typeof LutsRoute
@@ -139,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConnectRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -151,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   ConnectRoute: ConnectRoute,
   FashionRoute: FashionRoute,
   LutsRoute: LutsRoute,
@@ -160,3 +187,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
