@@ -31,7 +31,7 @@ export function SoundpacksSection() {
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
             {packs.map((p) => (
               <article key={p.artist} className="group">
-                <div className="relative aspect-square overflow-hidden rounded-xl border border-ink/20">
+                <div className="relative aspect-square overflow-hidden border border-ink/20">
                   <img src={p.img} alt={p.artist} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <button className="absolute bottom-2 right-2 grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
                     ▶
