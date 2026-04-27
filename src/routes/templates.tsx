@@ -24,11 +24,22 @@ function TemplatesPage() {
           Browse our full catalog of Squarespace website templates and presentation decks. New drops every month.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {[
+            { img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80", price: "$79" },
+            { img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", price: "$99" },
+            { img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", price: "$129" },
+            { img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80", price: "$89" },
+            { img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=800&q=80", price: "$149" },
+            { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80", price: "$109" },
+          ].map((item, i) => (
             <article key={i} className="rounded-2xl border border-ink/15 p-6">
-              <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-muted" />
-              <h3 className="mt-4 font-display text-lg font-black uppercase tracking-widest">Template {i + 1}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Coming soon</p>
+              <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-muted">
+                <img src={item.img} alt={`Template ${i + 1}`} loading="lazy" className="h-full w-full object-cover" />
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-2">
+                <h3 className="font-display text-lg font-black uppercase tracking-widest">Template {i + 1}</h3>
+                <span className="font-mono text-sm font-bold">{item.price}</span>
+              </div>
             </article>
           ))}
         </div>

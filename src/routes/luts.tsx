@@ -24,11 +24,22 @@ function LutsPage() {
           Color grade your footage with cinematic looks crafted by Norf.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {[
+            { img: "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&q=80", price: "$29" },
+            { img: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80", price: "$39" },
+            { img: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80", price: "$49" },
+            { img: "https://images.unsplash.com/photo-1520637836862-4d197d17c55a?w=800&q=80", price: "$25" },
+            { img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&q=80", price: "$35" },
+            { img: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80", price: "$45" },
+          ].map((item, i) => (
             <article key={i} className="rounded-2xl border border-ink/15 p-6">
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted" />
-              <h3 className="mt-4 font-display text-lg font-black uppercase tracking-widest">LUT Pack {i + 1}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Coming soon</p>
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted">
+                <img src={item.img} alt={`LUT Pack ${i + 1}`} loading="lazy" className="h-full w-full object-cover" />
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-2">
+                <h3 className="font-display text-lg font-black uppercase tracking-widest">LUT Pack {i + 1}</h3>
+                <span className="font-mono text-sm font-bold">{item.price}</span>
+              </div>
             </article>
           ))}
         </div>
