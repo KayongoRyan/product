@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { TemplatesSection } from "@/components/TemplatesSection";
+import { CategoriesSection } from "@/components/CategoriesSection";
 import { LutsSection } from "@/components/LutsSection";
 import { NotAverageSection } from "@/components/NotAverageSection";
 import { FashionSection } from "@/components/FashionSection";
@@ -32,6 +33,7 @@ function Index() {
     <main className="min-h-screen bg-paper text-ink">
       <Nav />
       <Hero />
+      <CategoriesSection />
       <TemplatesSection />
       <NotAverageSection />
       <LutsSection />
