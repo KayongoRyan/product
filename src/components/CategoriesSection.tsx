@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
 
 const categories = [
-  { label: "IG Poster", to: "/categories/ig-poster" as const },
-  { label: "Representation", to: "/categories/representation" as const },
-  { label: "Flyer", to: "/categories/flyer" as const },
-  { label: "Invitation", to: "/categories/invitation" as const },
-  { label: "Brochure", to: "/categories/brochure" as const },
-  { label: "Business Card", to: "/categories/business-card" as const },
-  { label: "Album Cover", to: "/categories/album-cover" as const },
-  { label: "Logo", to: "/categories/logo" as const },
-  { label: "Banner", to: "/categories/banner" as const },
+  { label: "IG Poster", slug: "ig-poster" },
+  { label: "Representation", slug: "representation" },
+  { label: "Flyer", slug: "flyer" },
+  { label: "Invitation", slug: "invitation" },
+  { label: "Brochure", slug: "brochure" },
+  { label: "Business Card", slug: "business-card" },
+  { label: "Album Cover", slug: "album-cover" },
+  { label: "Logo", slug: "logo" },
+  { label: "Banner", slug: "banner" },
 ];
 
 export function CategoriesSection() {
@@ -28,8 +28,9 @@ export function CategoriesSection() {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-3">
           {categories.map((c) => (
             <Link
-              key={c.to}
-              to={c.to}
+              key={c.slug}
+              to="/categories/$slug"
+              params={{ slug: c.slug }}
               className="group flex items-center justify-between rounded-[3px] border-[1.5px] border-ink bg-paper px-5 py-5 font-display text-base font-bold uppercase tracking-widest text-ink transition-all hover:bg-ink hover:text-paper md:text-lg"
             >
               <span>{c.label}</span>
