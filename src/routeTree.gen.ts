@@ -17,6 +17,7 @@ import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
 
 const TemplatesRoute = TemplatesRouteImport.update({
   id: '/templates',
@@ -58,6 +59,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
+  id: '/categories/$slug',
+  path: '/categories/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
+  '/categories/$slug': typeof CategoriesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
+  '/categories/$slug': typeof CategoriesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
   '/templates': typeof TemplatesRoute
+  '/categories/$slug': typeof CategoriesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/soundpacks'
     | '/templates'
+    | '/categories/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/soundpacks'
     | '/templates'
+    | '/categories/$slug'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/soundpacks'
     | '/templates'
+    | '/categories/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   SettingsRoute: typeof SettingsRoute
   SoundpacksRoute: typeof SoundpacksRoute
   TemplatesRoute: typeof TemplatesRoute
+  CategoriesSlugRoute: typeof CategoriesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/categories/$slug': {
+      id: '/categories/$slug'
+      path: '/categories/$slug'
+      fullPath: '/categories/$slug'
+      preLoaderRoute: typeof CategoriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   SettingsRoute: SettingsRoute,
   SoundpacksRoute: SoundpacksRoute,
   TemplatesRoute: TemplatesRoute,
+  CategoriesSlugRoute: CategoriesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
