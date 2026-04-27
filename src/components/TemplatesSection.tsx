@@ -1,212 +1,121 @@
 import { Link } from "@tanstack/react-router";
+import robot from "@/assets/3d-robot.jpg";
+import device from "@/assets/3d-device.jpg";
+import astronaut from "@/assets/3d-astronaut.jpg";
 
-type Featured = { title: string; img: string };
-type Template = { title: string; images: string[]; bg: string; direction: "up" | "down" };
-
-const websiteFeatured: Featured = {
-  title: "WEBSITE TEMPLATES",
-  img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=900&q=80",
+type Project = {
+  number: string;
+  title: string;
+  category: string;
+  description: string;
+  img: string;
+  bg: string;
+  ring: string;
 };
 
-const websiteTemplates: Template[] = [
+const projects: Project[] = [
   {
-    title: "Future of Private Equity",
-    images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&q=80",
-    ],
-    bg: "bg-[#f5efe2]",
-    direction: "up",
+    number: "01",
+    title: "Nova Bot",
+    category: "Mascot · Character",
+    description: "A glossy 3D character mascot built for tech brands and product launches.",
+    img: robot,
+    bg: "bg-[#fff7e6]",
+    ring: "ring-amber-300",
   },
   {
-    title: "From Dusk Till Dawn",
-    images: [
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=700&q=80",
-      "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?w=700&q=80",
-      "https://images.unsplash.com/photo-1494253109108-2e30c049369b?w=700&q=80",
-    ],
-    bg: "bg-[#e9e4dc]",
-    direction: "down",
+    number: "02",
+    title: "Holo Device",
+    category: "Product · Isometric",
+    description: "Isometric device render with floating UI cards — perfect for app keynotes.",
+    img: device,
+    bg: "bg-[#fde7f3]",
+    ring: "ring-pink-300",
   },
   {
-    title: "Urban Streetwear Hub",
-    images: [
-      "https://images.unsplash.com/photo-1483721310020-03333e577078?w=700&q=80",
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=700&q=80",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=80",
-    ],
-    bg: "bg-[#1a1a1a]",
-    direction: "down",
-  },
-  {
-    title: "Holiday Collection",
-    images: [
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=80",
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=700&q=80",
-      "https://images.unsplash.com/photo-1485518882345-15568b007407?w=700&q=80",
-    ],
-    bg: "bg-[#d8d4cc]",
-    direction: "up",
+    number: "03",
+    title: "Drift Astronaut",
+    category: "Editorial · Scene",
+    description: "Soft pastel astronaut scene for editorial covers, banners and hero art.",
+    img: astronaut,
+    bg: "bg-[#e8f0ff]",
+    ring: "ring-indigo-300",
   },
 ];
-
-const presentationFeatured: Featured = {
-  title: "PRESENTATION TEMPLATES",
-  img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=900&q=80",
-};
-
-const presentationTemplates: Template[] = [
-  {
-    title: "Pitch Deck Pro",
-    images: [
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&q=80",
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=80",
-    ],
-    bg: "bg-[#efe9dc]",
-    direction: "up",
-  },
-  {
-    title: "Brand Story",
-    images: [
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&q=80",
-      "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=700&q=80",
-      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=700&q=80",
-    ],
-    bg: "bg-[#e6dfd0]",
-    direction: "down",
-  },
-  {
-    title: "Investor Memo",
-    images: [
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&q=80",
-    ],
-    bg: "bg-[#1a1a1a]",
-    direction: "down",
-  },
-  {
-    title: "Quarterly Review",
-    images: [
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=80",
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&q=80",
-    ],
-    bg: "bg-[#d4cfc4]",
-    direction: "up",
-  },
-];
-
-function FlowingImages({ images, direction, title, bg }: { images: string[]; direction: "up" | "down"; title: string; bg: string }) {
-  // Duplicate for seamless loop
-  const loop = [...images, ...images];
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      <div className={`absolute inset-x-0 flex flex-col gap-3 ${direction === "up" ? "flow-up" : "flow-down"}`}>
-        {loop.map((src, i) => (
-          <div
-            key={i}
-            className={`w-full overflow-hidden rounded-[3px] flex-shrink-0 ${bg}`}
-          >
-            <img
-              src={src}
-              alt={title}
-              loading="lazy"
-              className="w-full h-[220px] object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function TemplateBlock({
-  featured,
-  templates,
-  featuredSide = "left",
-}: {
-  featured: Featured;
-  templates: Template[];
-  featuredSide?: "left" | "right";
-}) {
-  const isRight = featuredSide === "right";
-  return (
-    <div
-      className={`grid items-center gap-12 md:gap-20 md:justify-center ${
-        isRight
-          ? "md:grid-cols-[minmax(0,820px)_minmax(0,220px)]"
-          : "md:grid-cols-[minmax(0,220px)_minmax(0,820px)]"
-      }`}
-    >
-      {/* Featured card */}
-      <article className={`flex flex-col items-center ${isRight ? "md:order-2" : "md:order-1"}`}>
-        <div className="relative w-full max-w-[240px] overflow-hidden rounded-[3px] bg-[#f5efe2]">
-          <div className="aspect-[3/4] w-full">
-            <img
-              src={featured.img}
-              alt={featured.title}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-        <h3 className="mt-5 text-center font-display text-base font-black uppercase tracking-widest text-ink">
-          {featured.title}
-        </h3>
-        <Link
-          to="/templates"
-          className="mt-3 rounded-full bg-primary px-6 py-2.5 font-display text-xs font-black uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5"
-        >
-          View More
-        </Link>
-      </article>
-
-      {/* Layout: tall | stacked(2 over 3) | tall */}
-      <div className={`grid grid-cols-3 gap-6 md:gap-8 h-[420px] md:h-[480px] w-full ${isRight ? "md:order-1" : "md:order-2"}`}>
-        <div className="relative h-full overflow-hidden">
-          <FlowingImages images={templates[0].images} direction={templates[0].direction} title={templates[0].title} bg={templates[0].bg} />
-        </div>
-
-        <div className="flex flex-col h-full gap-6 md:gap-8">
-          <div className="relative flex-1 overflow-hidden">
-            <FlowingImages images={templates[1].images} direction={templates[1].direction} title={templates[1].title} bg={templates[1].bg} />
-          </div>
-          <div className="relative flex-1 overflow-hidden">
-            <FlowingImages images={templates[2].images} direction={templates[2].direction} title={templates[2].title} bg={templates[2].bg} />
-          </div>
-        </div>
-
-        <div className="relative h-full overflow-hidden">
-          <FlowingImages images={templates[3].images} direction={templates[3].direction} title={templates[3].title} bg={templates[3].bg} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function TemplatesSection() {
   return (
-    <section id="templates" className="bg-paper px-5 py-20 md:px-10">
-      <div className="mx-auto max-w-7xl space-y-20">
-        {/* Block 1 — Website Templates */}
-        <div>
-          <div className="mb-12 text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              01 — Shop
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-black uppercase tracking-tight md:text-6xl">
-              Shop Squarespace Templates
+    <section id="3d" className="bg-paper px-5 py-20 md:px-10">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <span className="inline-block rounded-full border-[1.5px] border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.25em]">
+              Featured · 3D
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight md:text-6xl">
+              Crafted in 3D <br />
+              <span className="italic text-primary">three projects</span> · one studio
             </h2>
           </div>
-          <TemplateBlock featured={websiteFeatured} templates={websiteTemplates} />
+          <p className="max-w-sm text-sm text-ink/70 md:text-base">
+            From characters to devices to editorial scenes — bespoke 3D renders that move pixels and people.
+          </p>
         </div>
 
-        {/* Block 2 — Presentation Templates */}
-        <div>
-          <TemplateBlock featured={presentationFeatured} templates={presentationTemplates} featuredSide="right" />
+        {/* Projects grid */}
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {projects.map((p) => (
+            <article
+              key={p.number}
+              className={`group relative overflow-hidden rounded-[3px] border-[1.5px] border-ink ${p.bg} p-5 transition-transform duration-500 hover:-translate-y-1`}
+            >
+              <div className="flex items-start justify-between">
+                <span className="font-mono text-xs font-bold tracking-widest text-ink/60">
+                  {p.number} / 03
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-ink/60">
+                  {p.category}
+                </span>
+              </div>
+
+              <div className={`mt-4 aspect-square w-full overflow-hidden rounded-[3px] bg-paper ring-2 ${p.ring}`}>
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-3">
+                <div>
+                  <h3 className="font-display text-2xl font-black uppercase tracking-tight">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-ink/70">{p.description}</p>
+                </div>
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-ink text-paper transition-transform group-hover:rotate-45">
+                  ↗
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-[3px] border-[1.5px] border-ink bg-ink px-6 py-5 text-paper md:flex-row md:px-8">
+          <p className="font-display text-lg font-black uppercase tracking-widest">
+            Need a custom 3D project?
+          </p>
+          <Link
+            to="/connect"
+            className="rounded-full bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-ink transition-transform hover:-translate-y-0.5"
+          >
+            Start a project →
+          </Link>
         </div>
       </div>
     </section>
