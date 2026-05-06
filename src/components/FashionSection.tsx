@@ -89,13 +89,19 @@ const looks: Look[] = [
 
 export function FashionSection() {
   return (
-    <section id="fashion" className="bg-paper px-5 py-20 md:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section id="apparel" className="bg-paper px-4 py-20 md:px-6">
+      <div className="w-full">
         <div className="relative flex flex-col items-center justify-center gap-12">
           <div className="relative h-24 w-24 shrink-0 md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:h-32 md:w-32">
-            <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-[spin_12s_linear_infinite]">
+            <svg
+              viewBox="0 0 100 100"
+              className="absolute inset-0 h-full w-full animate-[spin_12s_linear_infinite]"
+            >
               <defs>
-                <path id="fashion-circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+                <path
+                  id="fashion-circle"
+                  d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
+                />
               </defs>
               <text className="fill-ink font-display text-[11px] font-bold uppercase tracking-[0.2em]">
                 <textPath href="#fashion-circle" startOffset="0">
@@ -132,7 +138,12 @@ export function FashionSection() {
                         i === 1 ? "h-[300px] w-[180px]" : "h-[260px] w-[160px]"
                       }`}
                     >
-                      <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+                      <img
+                        src={l.img}
+                        alt={l.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   ))}
                 </div>
@@ -168,7 +179,12 @@ export function FashionSection() {
                         i === 1 ? "h-[300px] w-[180px]" : "h-[260px] w-[160px]"
                       }`}
                     >
-                      <img src={l.img} alt={l.alt} loading="lazy" className="h-full w-full object-cover" />
+                      <img
+                        src={l.img}
+                        alt={l.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   ))}
                 </div>
@@ -180,36 +196,71 @@ export function FashionSection() {
           <div className="hidden lg:grid lg:grid-cols-6 lg:grid-rows-2 lg:gap-5 lg:h-[640px] lg:w-full">
             {/* LEFT cluster — card 1 stacked on card 2 in col 1, card 3 spans both rows in col 2 */}
             <div className="group col-start-1 row-start-1 overflow-hidden rounded-[3px] shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[0].img} alt={looks[0].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[0].img}
+                alt={looks[0].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
             <div className="group col-start-1 row-start-2 overflow-hidden rounded-[3px] shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[1].img} alt={looks[1].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[1].img}
+                alt={looks[1].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
             <div className="group col-start-2 row-start-1 row-span-2 overflow-hidden rounded-[3px] shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[2].img} alt={looks[2].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[2].img}
+                alt={looks[2].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
 
             {/* CENTER focal — single cell, centered between clusters */}
             <div className="group col-start-3 col-span-2 row-start-1 row-span-2 self-center justify-self-center h-[60%] w-[70%] overflow-hidden rounded-[3px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[3].img} alt={looks[3].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[3].img}
+                alt={looks[3].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
 
             {/* RIGHT cluster — tall card spans both rows in col 5, cards 5 & 6 stacked in col 6 */}
             <div className="group col-start-5 row-start-1 row-span-2 overflow-hidden rounded-[3px] shadow-[0_22px_45px_-22px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[4].img} alt={looks[4].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[4].img}
+                alt={looks[4].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
             <div className="group col-start-6 row-start-1 overflow-hidden rounded-[3px] shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[5].img} alt={looks[5].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[5].img}
+                alt={looks[5].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
             <div className="group col-start-6 row-start-2 overflow-hidden rounded-[3px] shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:scale-[1.03]">
-              <img src={looks[6].img} alt={looks[6].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={looks[6].img}
+                alt={looks[6].alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
           </div>
         </div>
 
         <div className="mt-10 flex justify-center">
           <Link
-            to="/fashion"
+            to="/apparel"
             className="rounded-full bg-primary px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0_var(--ink)]"
           >
             Explore More →
@@ -223,7 +274,7 @@ export function FashionSection() {
               <div className="flex items-baseline gap-4">
                 <span className="font-display text-2xl font-semibold text-primary">01</span>
                 <span className="text-xs uppercase tracking-[0.3em] text-paper/60">
-                  Setup your fashion with the latest trend
+                  Setup your apparel with the latest trend
                 </span>
               </div>
 
@@ -233,17 +284,19 @@ export function FashionSection() {
               </h3>
 
               <p className="max-w-md text-base leading-relaxed text-paper/70">
-                Turns out, a beautiful & strategic wardrobe doesn't have to start from
-                scratch. Curated drops, timeless pieces, ready when you are.
+                Turns out, a beautiful & strategic wardrobe doesn't have to start from scratch.
+                Curated drops, timeless pieces, ready when you are.
               </p>
 
               <div>
                 <Link
-                  to="/fashion"
+                  to="/apparel"
                   className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink shadow-[0_8px_24px_-8px_rgba(229,164,67,0.6)] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_12px_28px_-8px_rgba(229,164,67,0.8)]"
                 >
                   Explore More
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
                 </Link>
               </div>
             </div>
@@ -252,7 +305,7 @@ export function FashionSection() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] border border-paper/10">
               <img
                 src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1000&q=80"
-                alt="Fashion model in studio"
+                alt="Apparel model in studio"
                 loading="lazy"
                 className="h-full w-full object-cover"
               />

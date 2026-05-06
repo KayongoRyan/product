@@ -5,9 +5,15 @@ export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
       { title: "Connect — Norf Crebions" },
-      { name: "description", content: "Get in touch with Norf Crebions for collabs and inquiries." },
+      {
+        name: "description",
+        content: "Get in touch with Norf Crebions for collabs and inquiries.",
+      },
       { property: "og:title", content: "Connect — Norf Crebions" },
-      { property: "og:description", content: "Get in touch with Norf Crebions for collabs and inquiries." },
+      {
+        property: "og:description",
+        content: "Get in touch with Norf Crebions for collabs and inquiries.",
+      },
     ],
   }),
   component: ConnectPage,
@@ -15,11 +21,18 @@ export const Route = createFileRoute("/connect")({
 
 function ConnectPage() {
   return (
-    <main className="min-h-screen bg-paper px-5 py-24 text-ink md:px-10">
+    <main className="min-h-screen bg-paper px-4 py-24 text-ink md:px-6">
       <Nav />
       <div className="mx-auto max-w-3xl">
-        <Link to="/" className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-ink">← Back home</Link>
-        <h1 className="mt-6 font-display text-5xl font-black uppercase tracking-tight md:text-7xl">Let's Connect</h1>
+        <Link
+          to="/"
+          className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-ink"
+        >
+          ← Back home
+        </Link>
+        <h1 className="mt-6 font-display text-5xl font-black uppercase tracking-tight md:text-7xl">
+          Let's Connect
+        </h1>
         <p className="mt-4 text-base text-muted-foreground">
           Got a project, collab, or question? Drop us a line.
         </p>

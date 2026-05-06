@@ -13,11 +13,21 @@ import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as SoundpacksRouteImport } from './routes/soundpacks'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as LutsRouteImport } from './routes/luts'
+import { Route as LightroomPresetsRouteImport } from './routes/lightroom-presets'
 import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ApparelRouteImport } from './routes/apparel'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TemplatesIndexRouteImport } from './routes/templates.index'
+import { Route as LutsIndexRouteImport } from './routes/luts.index'
+import { Route as LightroomPresetsIndexRouteImport } from './routes/lightroom-presets.index'
+import { Route as ApparelIndexRouteImport } from './routes/apparel.index'
+import { Route as TemplatesTemplateIdRouteImport } from './routes/templates.$templateId'
+import { Route as LutsPresetIdRouteImport } from './routes/luts.$presetId'
+import { Route as LightroomPresetsPresetIdRouteImport } from './routes/lightroom-presets.$presetId'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
+import { Route as ApparelProductIdRouteImport } from './routes/apparel.$productId'
 
 const TemplatesRoute = TemplatesRouteImport.update({
   id: '/templates',
@@ -39,6 +49,11 @@ const LutsRoute = LutsRouteImport.update({
   path: '/luts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LightroomPresetsRoute = LightroomPresetsRouteImport.update({
+  id: '/lightroom-presets',
+  path: '/lightroom-presets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FashionRoute = FashionRouteImport.update({
   id: '/fashion',
   path: '/fashion',
@@ -54,96 +69,196 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApparelRoute = ApparelRouteImport.update({
+  id: '/apparel',
+  path: '/apparel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesIndexRoute = TemplatesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TemplatesRoute,
+} as any)
+const LutsIndexRoute = LutsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LutsRoute,
+} as any)
+const LightroomPresetsIndexRoute = LightroomPresetsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LightroomPresetsRoute,
+} as any)
+const ApparelIndexRoute = ApparelIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ApparelRoute,
+} as any)
+const TemplatesTemplateIdRoute = TemplatesTemplateIdRouteImport.update({
+  id: '/$templateId',
+  path: '/$templateId',
+  getParentRoute: () => TemplatesRoute,
+} as any)
+const LutsPresetIdRoute = LutsPresetIdRouteImport.update({
+  id: '/$presetId',
+  path: '/$presetId',
+  getParentRoute: () => LutsRoute,
+} as any)
+const LightroomPresetsPresetIdRoute =
+  LightroomPresetsPresetIdRouteImport.update({
+    id: '/$presetId',
+    path: '/$presetId',
+    getParentRoute: () => LightroomPresetsRoute,
+  } as any)
 const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
   id: '/categories/$slug',
   path: '/categories/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApparelProductIdRoute = ApparelProductIdRouteImport.update({
+  id: '/$productId',
+  path: '/$productId',
+  getParentRoute: () => ApparelRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apparel': typeof ApparelRouteWithChildren
   '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
-  '/luts': typeof LutsRoute
+  '/lightroom-presets': typeof LightroomPresetsRouteWithChildren
+  '/luts': typeof LutsRouteWithChildren
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
-  '/templates': typeof TemplatesRoute
+  '/templates': typeof TemplatesRouteWithChildren
+  '/apparel/$productId': typeof ApparelProductIdRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/lightroom-presets/$presetId': typeof LightroomPresetsPresetIdRoute
+  '/luts/$presetId': typeof LutsPresetIdRoute
+  '/templates/$templateId': typeof TemplatesTemplateIdRoute
+  '/apparel/': typeof ApparelIndexRoute
+  '/lightroom-presets/': typeof LightroomPresetsIndexRoute
+  '/luts/': typeof LutsIndexRoute
+  '/templates/': typeof TemplatesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
-  '/luts': typeof LutsRoute
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
-  '/templates': typeof TemplatesRoute
+  '/apparel/$productId': typeof ApparelProductIdRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/lightroom-presets/$presetId': typeof LightroomPresetsPresetIdRoute
+  '/luts/$presetId': typeof LutsPresetIdRoute
+  '/templates/$templateId': typeof TemplatesTemplateIdRoute
+  '/apparel': typeof ApparelIndexRoute
+  '/lightroom-presets': typeof LightroomPresetsIndexRoute
+  '/luts': typeof LutsIndexRoute
+  '/templates': typeof TemplatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apparel': typeof ApparelRouteWithChildren
   '/auth': typeof AuthRoute
   '/connect': typeof ConnectRoute
   '/fashion': typeof FashionRoute
-  '/luts': typeof LutsRoute
+  '/lightroom-presets': typeof LightroomPresetsRouteWithChildren
+  '/luts': typeof LutsRouteWithChildren
   '/settings': typeof SettingsRoute
   '/soundpacks': typeof SoundpacksRoute
-  '/templates': typeof TemplatesRoute
+  '/templates': typeof TemplatesRouteWithChildren
+  '/apparel/$productId': typeof ApparelProductIdRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/lightroom-presets/$presetId': typeof LightroomPresetsPresetIdRoute
+  '/luts/$presetId': typeof LutsPresetIdRoute
+  '/templates/$templateId': typeof TemplatesTemplateIdRoute
+  '/apparel/': typeof ApparelIndexRoute
+  '/lightroom-presets/': typeof LightroomPresetsIndexRoute
+  '/luts/': typeof LutsIndexRoute
+  '/templates/': typeof TemplatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apparel'
     | '/auth'
     | '/connect'
     | '/fashion'
+    | '/lightroom-presets'
     | '/luts'
     | '/settings'
     | '/soundpacks'
     | '/templates'
+    | '/apparel/$productId'
     | '/categories/$slug'
+    | '/lightroom-presets/$presetId'
+    | '/luts/$presetId'
+    | '/templates/$templateId'
+    | '/apparel/'
+    | '/lightroom-presets/'
+    | '/luts/'
+    | '/templates/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/auth'
     | '/connect'
     | '/fashion'
-    | '/luts'
     | '/settings'
     | '/soundpacks'
-    | '/templates'
+    | '/apparel/$productId'
     | '/categories/$slug'
+    | '/lightroom-presets/$presetId'
+    | '/luts/$presetId'
+    | '/templates/$templateId'
+    | '/apparel'
+    | '/lightroom-presets'
+    | '/luts'
+    | '/templates'
   id:
     | '__root__'
     | '/'
+    | '/apparel'
     | '/auth'
     | '/connect'
     | '/fashion'
+    | '/lightroom-presets'
     | '/luts'
     | '/settings'
     | '/soundpacks'
     | '/templates'
+    | '/apparel/$productId'
     | '/categories/$slug'
+    | '/lightroom-presets/$presetId'
+    | '/luts/$presetId'
+    | '/templates/$templateId'
+    | '/apparel/'
+    | '/lightroom-presets/'
+    | '/luts/'
+    | '/templates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApparelRoute: typeof ApparelRouteWithChildren
   AuthRoute: typeof AuthRoute
   ConnectRoute: typeof ConnectRoute
   FashionRoute: typeof FashionRoute
-  LutsRoute: typeof LutsRoute
+  LightroomPresetsRoute: typeof LightroomPresetsRouteWithChildren
+  LutsRoute: typeof LutsRouteWithChildren
   SettingsRoute: typeof SettingsRoute
   SoundpacksRoute: typeof SoundpacksRoute
-  TemplatesRoute: typeof TemplatesRoute
+  TemplatesRoute: typeof TemplatesRouteWithChildren
   CategoriesSlugRoute: typeof CategoriesSlugRoute
 }
 
@@ -177,6 +292,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LutsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lightroom-presets': {
+      id: '/lightroom-presets'
+      path: '/lightroom-presets'
+      fullPath: '/lightroom-presets'
+      preLoaderRoute: typeof LightroomPresetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fashion': {
       id: '/fashion'
       path: '/fashion'
@@ -198,12 +320,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apparel': {
+      id: '/apparel'
+      path: '/apparel'
+      fullPath: '/apparel'
+      preLoaderRoute: typeof ApparelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/templates/': {
+      id: '/templates/'
+      path: '/'
+      fullPath: '/templates/'
+      preLoaderRoute: typeof TemplatesIndexRouteImport
+      parentRoute: typeof TemplatesRoute
+    }
+    '/luts/': {
+      id: '/luts/'
+      path: '/'
+      fullPath: '/luts/'
+      preLoaderRoute: typeof LutsIndexRouteImport
+      parentRoute: typeof LutsRoute
+    }
+    '/lightroom-presets/': {
+      id: '/lightroom-presets/'
+      path: '/'
+      fullPath: '/lightroom-presets/'
+      preLoaderRoute: typeof LightroomPresetsIndexRouteImport
+      parentRoute: typeof LightroomPresetsRoute
+    }
+    '/apparel/': {
+      id: '/apparel/'
+      path: '/'
+      fullPath: '/apparel/'
+      preLoaderRoute: typeof ApparelIndexRouteImport
+      parentRoute: typeof ApparelRoute
+    }
+    '/templates/$templateId': {
+      id: '/templates/$templateId'
+      path: '/$templateId'
+      fullPath: '/templates/$templateId'
+      preLoaderRoute: typeof TemplatesTemplateIdRouteImport
+      parentRoute: typeof TemplatesRoute
+    }
+    '/luts/$presetId': {
+      id: '/luts/$presetId'
+      path: '/$presetId'
+      fullPath: '/luts/$presetId'
+      preLoaderRoute: typeof LutsPresetIdRouteImport
+      parentRoute: typeof LutsRoute
+    }
+    '/lightroom-presets/$presetId': {
+      id: '/lightroom-presets/$presetId'
+      path: '/$presetId'
+      fullPath: '/lightroom-presets/$presetId'
+      preLoaderRoute: typeof LightroomPresetsPresetIdRouteImport
+      parentRoute: typeof LightroomPresetsRoute
     }
     '/categories/$slug': {
       id: '/categories/$slug'
@@ -212,18 +390,79 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apparel/$productId': {
+      id: '/apparel/$productId'
+      path: '/$productId'
+      fullPath: '/apparel/$productId'
+      preLoaderRoute: typeof ApparelProductIdRouteImport
+      parentRoute: typeof ApparelRoute
+    }
   }
 }
 
+interface ApparelRouteChildren {
+  ApparelProductIdRoute: typeof ApparelProductIdRoute
+  ApparelIndexRoute: typeof ApparelIndexRoute
+}
+
+const ApparelRouteChildren: ApparelRouteChildren = {
+  ApparelProductIdRoute: ApparelProductIdRoute,
+  ApparelIndexRoute: ApparelIndexRoute,
+}
+
+const ApparelRouteWithChildren =
+  ApparelRoute._addFileChildren(ApparelRouteChildren)
+
+interface LightroomPresetsRouteChildren {
+  LightroomPresetsPresetIdRoute: typeof LightroomPresetsPresetIdRoute
+  LightroomPresetsIndexRoute: typeof LightroomPresetsIndexRoute
+}
+
+const LightroomPresetsRouteChildren: LightroomPresetsRouteChildren = {
+  LightroomPresetsPresetIdRoute: LightroomPresetsPresetIdRoute,
+  LightroomPresetsIndexRoute: LightroomPresetsIndexRoute,
+}
+
+const LightroomPresetsRouteWithChildren =
+  LightroomPresetsRoute._addFileChildren(LightroomPresetsRouteChildren)
+
+interface LutsRouteChildren {
+  LutsPresetIdRoute: typeof LutsPresetIdRoute
+  LutsIndexRoute: typeof LutsIndexRoute
+}
+
+const LutsRouteChildren: LutsRouteChildren = {
+  LutsPresetIdRoute: LutsPresetIdRoute,
+  LutsIndexRoute: LutsIndexRoute,
+}
+
+const LutsRouteWithChildren = LutsRoute._addFileChildren(LutsRouteChildren)
+
+interface TemplatesRouteChildren {
+  TemplatesTemplateIdRoute: typeof TemplatesTemplateIdRoute
+  TemplatesIndexRoute: typeof TemplatesIndexRoute
+}
+
+const TemplatesRouteChildren: TemplatesRouteChildren = {
+  TemplatesTemplateIdRoute: TemplatesTemplateIdRoute,
+  TemplatesIndexRoute: TemplatesIndexRoute,
+}
+
+const TemplatesRouteWithChildren = TemplatesRoute._addFileChildren(
+  TemplatesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApparelRoute: ApparelRouteWithChildren,
   AuthRoute: AuthRoute,
   ConnectRoute: ConnectRoute,
   FashionRoute: FashionRoute,
-  LutsRoute: LutsRoute,
+  LightroomPresetsRoute: LightroomPresetsRouteWithChildren,
+  LutsRoute: LutsRouteWithChildren,
   SettingsRoute: SettingsRoute,
   SoundpacksRoute: SoundpacksRoute,
-  TemplatesRoute: TemplatesRoute,
+  TemplatesRoute: TemplatesRouteWithChildren,
   CategoriesSlugRoute: CategoriesSlugRoute,
 }
 export const routeTree = rootRouteImport

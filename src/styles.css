@@ -31,7 +31,7 @@
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --font-display: "Poppins", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Poppins", system-ui, sans-serif;
   --font-sans: "Poppins", system-ui, sans-serif;
 }
 
@@ -41,7 +41,7 @@
   /* Brand */
   --paper: oklch(0.985 0.005 90);
   --ink: oklch(0.16 0.01 90);
-  --primary: oklch(0.88 0.18 95);          /* signature yellow */
+  --primary: oklch(0.88 0.18 95); /* signature yellow */
   --primary-foreground: oklch(0.16 0.01 90);
 
   --background: var(--paper);
@@ -85,21 +85,29 @@
   * {
     border-color: var(--color-border);
   }
-  html, body {
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .font-mono { font-family: var(--font-mono); }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
 
   .text-stroke {
     -webkit-text-stroke: 2px var(--ink);
@@ -128,11 +136,17 @@
     min-width: 100%;
     animation: marquee 70s linear infinite;
   }
-  .marquee-fast .marquee-track { animation-duration: 45s; }
+  .marquee-fast .marquee-track {
+    animation-duration: 45s;
+  }
 
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 
   .pill {
@@ -150,11 +164,19 @@
     top: -50%;
   }
   @keyframes flow-up {
-    from { transform: translateY(0); }
-    to { transform: translateY(-50%); }
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
   }
   @keyframes flow-down {
-    from { transform: translateY(-50%); }
-    to { transform: translateY(0); }
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 }

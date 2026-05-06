@@ -14,7 +14,11 @@ export function Marquee({ items, className, itemClassName, fast, separator }: Ma
       {items.concat(items).map((it, i) => (
         <span key={i} className={cn("flex items-center gap-10", itemClassName)}>
           {it}
-          {separator ?? <span aria-hidden className="opacity-60">✦</span>}
+          {separator ?? (
+            <span aria-hidden className="opacity-60">
+              ✦
+            </span>
+          )}
         </span>
       ))}
     </div>
@@ -27,7 +31,11 @@ export function Marquee({ items, className, itemClassName, fast, separator }: Ma
         {items.concat(items).map((it, i) => (
           <span key={`b-${i}`} className={cn("flex items-center gap-10", itemClassName)}>
             {it}
-            {separator ?? <span aria-hidden className="opacity-60">✦</span>}
+            {separator ?? (
+              <span aria-hidden className="opacity-60">
+                ✦
+              </span>
+            )}
           </span>
         ))}
       </div>
