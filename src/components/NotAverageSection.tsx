@@ -63,8 +63,8 @@ export function NotAverageSection() {
   const goNext = () => setPage((p) => (p + 1) % pages);
 
   return (
-    <section className="bg-paper px-5 pt-4 pb-8 md:px-10 md:pt-6 md:pb-10">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-paper px-4 pt-4 pb-8 md:px-6 md:pt-6 md:pb-10">
+      <div className="w-full">
         {/* Heading */}
         <div className="mb-12 text-center">
           <p className="font-mono text-sm md:text-base text-ink">
@@ -100,10 +100,7 @@ export function NotAverageSection() {
               {Array.from({ length: pages }).map((_, pIdx) => {
                 const slice = cards.slice(pIdx * PER_PAGE, pIdx * PER_PAGE + PER_PAGE);
                 return (
-                  <div
-                    key={pIdx}
-                    className="grid w-full shrink-0 grid-cols-1 gap-6 md:grid-cols-3"
-                  >
+                  <div key={pIdx} className="grid w-full shrink-0 grid-cols-1 gap-6 md:grid-cols-3">
                     {slice.map((card, i) => (
                       <article
                         key={i}

@@ -55,7 +55,7 @@ function SettingsPage() {
 
   if (loading || !user) {
     return (
-      <main className="min-h-screen bg-paper px-5 py-24 text-ink md:px-10">
+      <main className="min-h-screen bg-paper px-4 py-24 text-ink md:px-6">
         <Nav />
         <p className="mx-auto max-w-3xl font-mono text-sm text-muted-foreground">Loading…</p>
       </main>
@@ -65,7 +65,7 @@ function SettingsPage() {
   const initial = (profile?.display_name || user.email || "?").charAt(0).toUpperCase();
 
   return (
-    <main className="min-h-screen bg-paper px-5 py-24 text-ink md:px-10">
+    <main className="min-h-screen bg-paper px-4 py-24 text-ink md:px-6">
       <Nav />
       <div className="mx-auto max-w-3xl">
         <Link
@@ -77,16 +77,18 @@ function SettingsPage() {
         <h1 className="mt-6 font-display text-5xl font-black uppercase tracking-tight md:text-7xl">
           Settings
         </h1>
-        <p className="mt-4 text-base text-muted-foreground">
-          Manage your profile and account.
-        </p>
+        <p className="mt-4 text-base text-muted-foreground">Manage your profile and account.</p>
 
         {/* Profile card */}
         <section className="mt-10 rounded-2xl border-2 border-ink/15 bg-paper p-6 md:p-8">
           <div className="flex items-center gap-5">
             <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border-[1.5px] border-ink bg-primary font-display text-3xl font-black text-primary-foreground shadow-[0_4px_0_0_var(--ink)]">
               {avatarUrl ? (
-                <img src={avatarUrl} alt={displayName || "Avatar"} className="h-full w-full object-cover" />
+                <img
+                  src={avatarUrl}
+                  alt={displayName || "Avatar"}
+                  className="h-full w-full object-cover"
+                />
               ) : (
                 <span>{initial}</span>
               )}
@@ -103,7 +105,9 @@ function SettingsPage() {
 
           <dl className="mt-8 grid gap-4 border-t border-ink/10 pt-6 font-mono text-sm md:grid-cols-2">
             <div>
-              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">User ID</dt>
+              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                User ID
+              </dt>
               <dd className="mt-1 truncate text-ink">{user.id}</dd>
             </div>
             <div>
@@ -111,13 +115,17 @@ function SettingsPage() {
               <dd className="mt-1 truncate text-ink">{user.email}</dd>
             </div>
             <div>
-              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">Joined</dt>
+              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                Joined
+              </dt>
               <dd className="mt-1 text-ink">
                 {user.created_at ? new Date(user.created_at).toLocaleDateString() : "—"}
               </dd>
             </div>
             <div>
-              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">Last sign-in</dt>
+              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                Last sign-in
+              </dt>
               <dd className="mt-1 text-ink">
                 {user.last_sign_in_at ? new Date(user.last_sign_in_at).toLocaleString() : "—"}
               </dd>
