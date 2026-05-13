@@ -1,5 +1,7 @@
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
+export type AppRole = "user" | "moderator" | "admin";
+
 export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
@@ -14,6 +16,7 @@ export type Database = {
           created_at: string;
           display_name: string | null;
           id: string;
+          role: AppRole;
           updated_at: string;
         };
         Insert: {
@@ -21,6 +24,7 @@ export type Database = {
           created_at?: string;
           display_name?: string | null;
           id: string;
+          role?: AppRole;
           updated_at?: string;
         };
         Update: {
@@ -28,7 +32,44 @@ export type Database = {
           created_at?: string;
           display_name?: string | null;
           id?: string;
+          role?: AppRole;
           updated_at?: string;
+        };
+        Relationships: [];
+      };
+      user_sessions: {
+        Row: {
+          id: string;
+          user_id: string;
+          refresh_token_hash: string;
+          user_agent: string | null;
+          ip_address: string | null;
+          expires_at: string;
+          revoked_at: string | null;
+          created_at: string;
+          last_refreshed_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          refresh_token_hash: string;
+          user_agent?: string | null;
+          ip_address?: string | null;
+          expires_at: string;
+          revoked_at?: string | null;
+          created_at?: string;
+          last_refreshed_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          refresh_token_hash?: string;
+          user_agent?: string | null;
+          ip_address?: string | null;
+          expires_at?: string;
+          revoked_at?: string | null;
+          created_at?: string;
+          last_refreshed_at?: string;
         };
         Relationships: [];
       };
@@ -40,7 +81,7 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
-      [_ in never]: never;
+      app_role: AppRole;
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -165,6 +206,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["user", "moderator", "admin"] as const,
+    },
   },
 } as const;

@@ -1,0 +1,23 @@
+{
+  "name": "norfproduct-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.7",
+    "@supabase/supabase-js": "^2.105.1",
+    "hono": "^4.11.4",
+    "jose": "^6.1.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3"
+  }
+}
